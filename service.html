@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事業内容 | 合同会社Kパートナーズ</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Noto Sans JP', 'sans-serif'],
+            inter: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            primary: '#0f172a',
+            accent: '#3b82f6',
+            'accent-dark': '#1d4ed8',
+            surface: '#f8fafc',
+            border: '#e2e8f0',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+    /* Animated Gradient Background */
+    .gradient-hero {
+      background: linear-gradient(-45deg, #0f172a, #1e293b, #3b82f6, #1e40af);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Floating Dots Pattern */
+    .dots-pattern {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px);
+      background-size: 30px 30px;
+      animation: dotFloat 20s linear infinite;
+    }
+    @keyframes dotFloat {
+      0% { background-position: 0 0; }
+      100% { background-position: 30px 30px; }
+    }
+
+
+    /* Process Steps */
+    .process-line {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+    }
+    .process-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #3b82f6;
+      position: relative;
+      z-index: 10;
+    }
+    .process-dot::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid #3b82f6;
+      animation: ripple 2s ease-out infinite;
+    }
+    @keyframes ripple {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(2); opacity: 0; }
+    }
+
+    /* Fade In */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Hover lift */
+    .hover-lift {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hover-lift:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-sm border-b border-border">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="group flex items-center gap-3">
+          <div class="relative w-11 h-11">
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl group-hover:scale-105 transition-transform"></div>
+            <div class="absolute inset-[2px] bg-white rounded-[10px] flex items-center justify-center">
+              <span class="text-blue-600 font-black text-xl font-inter">K</span>
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-black text-lg text-primary tracking-tight leading-none">K PARTNERS</span>
+            <span class="text-[10px] text-gray-400 tracking-[0.2em] font-medium">BUSINESS SOLUTIONS</span>
+          </div>
+        </a>
+        <nav class="hidden md:flex items-center gap-8 text-sm">
+          <a href="about.html" class="text-gray-600 hover:text-accent transition-colors font-medium">会社概要</a>
+          <a href="service.html" class="text-accent font-medium">事業内容</a>
+          <a href="contact.html" class="text-gray-600 hover:text-accent transition-colors font-medium">お問い合わせ</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Animated Gradient Hero -->
+    <section class="relative min-h-[500px] gradient-hero pt-20 flex items-center">
+      <div class="dots-pattern"></div>
+      <div class="relative z-10 max-w-6xl mx-auto px-6 py-20 text-center">
+        <p class="fade-in text-white/60 text-sm font-medium tracking-widest mb-4 font-inter uppercase">Service</p>
+        <h1 class="fade-in text-5xl md:text-6xl font-bold text-white mb-6">事業内容</h1>
+        <p class="fade-in text-white/80 text-lg max-w-2xl mx-auto">
+          テクノロジーと戦略で、ビジネスの可能性を広げる。<br>
+          4つの領域から最適なソリューションをご提供します。
+        </p>
+      </div>
+    </section>
+
+    <!-- Service Cards -->
+    <section class="py-24 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16 fade-in">
+          <p class="text-accent text-sm font-medium tracking-widest mb-3 font-inter uppercase">Our Services</p>
+          <h2 class="text-3xl md:text-4xl font-bold text-primary">サービス一覧</h2>
+        </div>
+
+        <div class="space-y-0">
+
+          <!-- Service 1: System Development -->
+          <div class="fade-in border-t border-gray-200 py-12">
+            <div class="grid md:grid-cols-12 gap-8 items-start">
+              <div class="md:col-span-1">
+                <span class="text-5xl font-black text-gray-100 font-inter">01</span>
+              </div>
+              <div class="md:col-span-4">
+                <div class="flex items-center gap-4 mb-3">
+                  <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-primary">システム開発</h3>
+                    <p class="text-xs text-gray-400 font-inter">System Development</p>
+                  </div>
+                </div>
+              </div>
+              <div class="md:col-span-7">
+                <p class="text-gray-600 mb-4">フルスクラッチによる業務システム・Webアプリケーションの設計、開発、保守。ソフトウェアの企画から販売まで一貫したサービスを提供します。</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded">Webアプリケーション開発</span>
+                  <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded">業務システム構築</span>
+                  <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded">API連携</span>
+                  <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded">保守・運用</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service 2: Digital Marketing -->
+          <div class="fade-in border-t border-gray-200 py-12">
+            <div class="grid md:grid-cols-12 gap-8 items-start">
+              <div class="md:col-span-1">
+                <span class="text-5xl font-black text-gray-100 font-inter">02</span>
+              </div>
+              <div class="md:col-span-4">
+                <div class="flex items-center gap-4 mb-3">
+                  <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-primary">デジタルマーケティング</h3>
+                    <p class="text-xs text-gray-400 font-inter">Digital Marketing</p>
+                  </div>
+                </div>
+              </div>
+              <div class="md:col-span-7">
+                <p class="text-gray-600 mb-4">高機能ランディングページ制作、Webサイト構築、データ駆動型デジタル広告運用代行。成果にコミットした支援を行います。</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded">SEO/SEM戦略</span>
+                  <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded">SNSマーケティング</span>
+                  <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded">広告運用</span>
+                  <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded">アクセス解析</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service 3: AI/DX -->
+          <div class="fade-in border-t border-gray-200 py-12">
+            <div class="grid md:grid-cols-12 gap-8 items-start">
+              <div class="md:col-span-1">
+                <span class="text-5xl font-black text-gray-100 font-inter">03</span>
+              </div>
+              <div class="md:col-span-4">
+                <div class="flex items-center gap-4 mb-3">
+                  <div class="w-12 h-12 rounded-lg bg-slate-100 flex items-center justify-center">
+                    <svg class="w-6 h-6 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-primary">AI・DX支援</h3>
+                    <p class="text-xs text-gray-400 font-inter">AI & DX Solutions</p>
+                  </div>
+                </div>
+              </div>
+              <div class="md:col-span-7">
+                <p class="text-gray-600 mb-4">企業向け生成AI導入コンサルティング、DXリーダー育成研修、AI人材内製化に向けた組織設計支援を行います。</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded">AI導入支援</span>
+                  <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded">業務自動化</span>
+                  <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded">データ分析</span>
+                  <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded">DX戦略策定</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service 4: Financial Consulting -->
+          <div class="fade-in border-t border-b border-gray-200 py-12">
+            <div class="grid md:grid-cols-12 gap-8 items-start">
+              <div class="md:col-span-1">
+                <span class="text-5xl font-black text-gray-100 font-inter">04</span>
+              </div>
+              <div class="md:col-span-4">
+                <div class="flex items-center gap-4 mb-3">
+                  <div class="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center">
+                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-primary">財務コンサルティング</h3>
+                    <p class="text-xs text-gray-400 font-inter">Financial Consulting</p>
+                  </div>
+                </div>
+              </div>
+              <div class="md:col-span-7">
+                <p class="text-gray-600 mb-4">企業の資金調達支援及び財務コンサルティング。補助金・助成金の申請支援で経営基盤の強化をサポートします。</p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded">資金調達支援</span>
+                  <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded">補助金申請</span>
+                  <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded">財務戦略</span>
+                  <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded">M&A</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="py-24 bg-surface">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16 fade-in">
+          <p class="text-accent text-sm font-medium tracking-widest mb-3 font-inter uppercase">Process</p>
+          <h2 class="text-3xl md:text-4xl font-bold text-primary">ご依頼の流れ</h2>
+        </div>
+
+        <div class="relative">
+          <!-- Process Line (desktop) -->
+          <div class="hidden md:block process-line"></div>
+
+          <div class="grid md:grid-cols-4 gap-8">
+
+            <div class="fade-in text-center relative">
+              <div class="md:absolute md:left-1/2 md:-translate-x-1/2 md:-top-2 flex justify-center mb-4">
+                <div class="process-dot"></div>
+              </div>
+              <div class="md:pt-12">
+                <span class="inline-block text-4xl font-bold text-accent/20 font-inter mb-2">01</span>
+                <h3 class="font-bold text-primary mb-2">お問い合わせ</h3>
+                <p class="text-sm text-gray-500">フォームまたはお電話でご連絡ください</p>
+              </div>
+            </div>
+
+            <div class="fade-in text-center relative">
+              <div class="md:absolute md:left-1/2 md:-translate-x-1/2 md:-top-2 flex justify-center mb-4">
+                <div class="process-dot"></div>
+              </div>
+              <div class="md:pt-12">
+                <span class="inline-block text-4xl font-bold text-accent/20 font-inter mb-2">02</span>
+                <h3 class="font-bold text-primary mb-2">ヒアリング</h3>
+                <p class="text-sm text-gray-500">課題やご要望を詳しくお伺いします</p>
+              </div>
+            </div>
+
+            <div class="fade-in text-center relative">
+              <div class="md:absolute md:left-1/2 md:-translate-x-1/2 md:-top-2 flex justify-center mb-4">
+                <div class="process-dot"></div>
+              </div>
+              <div class="md:pt-12">
+                <span class="inline-block text-4xl font-bold text-accent/20 font-inter mb-2">03</span>
+                <h3 class="font-bold text-primary mb-2">ご提案</h3>
+                <p class="text-sm text-gray-500">最適なソリューションをご提案</p>
+              </div>
+            </div>
+
+            <div class="fade-in text-center relative">
+              <div class="md:absolute md:left-1/2 md:-translate-x-1/2 md:-top-2 flex justify-center mb-4">
+                <div class="process-dot"></div>
+              </div>
+              <div class="md:pt-12">
+                <span class="inline-block text-4xl font-bold text-accent/20 font-inter mb-2">04</span>
+                <h3 class="font-bold text-primary mb-2">プロジェクト開始</h3>
+                <p class="text-sm text-gray-500">契約後、プロジェクトを開始</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="py-24 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16 fade-in">
+          <p class="text-accent text-sm font-medium tracking-widest mb-3 font-inter uppercase">Why Choose Us</p>
+          <h2 class="text-3xl md:text-4xl font-bold text-primary">選ばれる理由</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+
+          <div class="fade-in bg-surface border border-gray-200 p-8 rounded-xl">
+            <div class="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-primary mb-3">スピーディーな対応</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">
+              迅速な意思決定でプロジェクトを加速します。
+            </p>
+          </div>
+
+          <div class="fade-in bg-surface border border-gray-200 p-8 rounded-xl">
+            <div class="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-primary mb-3">高品質な成果物</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">
+              豊富な経験と最新技術で、期待を超える品質をお約束します。
+            </p>
+          </div>
+
+          <div class="fade-in bg-surface border border-gray-200 p-8 rounded-xl">
+            <div class="w-14 h-14 rounded-xl bg-slate-100 flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-primary mb-3">ワンストップ対応</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">
+              戦略策定から実行まで、一貫したサポートで効率的なプロジェクト運営を実現。
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 py-16 text-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-12">
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="relative w-11 h-11">
+              <div class="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl"></div>
+              <div class="absolute inset-[2px] bg-gray-900 rounded-[10px] flex items-center justify-center">
+                <span class="text-blue-400 font-black text-xl font-inter">K</span>
+              </div>
+            </div>
+            <div>
+              <p class="font-black text-lg tracking-tight">K PARTNERS</p>
+              <p class="text-[10px] text-gray-500 tracking-[0.2em]">BUSINESS SOLUTIONS</p>
+            </div>
+          </div>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            〒145-0066<br>
+            東京都大田区南雪谷三丁目3番1号<br>
+            サイプレスヤマト105<br><br>
+            TEL: 03-6821-6584<br>
+            Mail: <a href="mailto:info@k-partners.online" class="hover:text-white">info@k-partners.online</a>
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-12">
+          <div>
+            <p class="font-medium text-sm mb-4">ページ</p>
+            <ul class="space-y-3 text-sm text-gray-400">
+              <li><a href="index.html" class="hover:text-white transition-colors">ホーム</a></li>
+              <li><a href="about.html" class="hover:text-white transition-colors">会社概要</a></li>
+              <li><a href="service.html" class="hover:text-white transition-colors">事業内容</a></li>
+              <li><a href="contact.html" class="hover:text-white transition-colors">お問い合わせ</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-medium text-sm mb-4">事業内容</p>
+            <ul class="space-y-3 text-sm text-gray-400">
+              <li>システム開発</li>
+              <li>デジタルマーケティング</li>
+              <li>AI・DX支援</li>
+              <li>財務コンサルティング</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-gray-800 text-center">
+        <p class="text-xs text-gray-500">&copy; 2025 K Partners LLC. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Intersection Observer for animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

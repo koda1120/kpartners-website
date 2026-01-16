@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ | 合同会社Kパートナーズ</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Noto Sans JP', 'sans-serif'],
+            inter: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            primary: '#0f172a',
+            accent: '#3b82f6',
+            'accent-dark': '#1d4ed8',
+            surface: '#f8fafc',
+            border: '#e2e8f0',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+    /* Geometric Background */
+    .geo-hero {
+      background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Floating Geometric Shapes */
+    .geo-shape {
+      position: absolute;
+      opacity: 0.05;
+    }
+    .geo-circle {
+      border: 2px solid #3b82f6;
+      border-radius: 50%;
+      animation: float 8s ease-in-out infinite;
+    }
+    .geo-square {
+      border: 2px solid #3b82f6;
+      transform: rotate(45deg);
+      animation: float 10s ease-in-out infinite reverse;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    /* Wave Background */
+    .wave-bg {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+    .wave-bg svg {
+      position: relative;
+      display: block;
+      width: calc(100% + 1.3px);
+      height: 120px;
+    }
+
+    /* Glass Card */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Fade In */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Custom Input Styles */
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    /* Animated Dots */
+    .dots-grid {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(59, 130, 246, 0.3) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    /* Info Card Hover */
+    .info-card {
+      transition: all 0.3s ease;
+    }
+    .info-card:hover {
+      transform: translateX(8px);
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-sm border-b border-border">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="group flex items-center gap-3">
+          <div class="relative w-11 h-11">
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl group-hover:scale-105 transition-transform"></div>
+            <div class="absolute inset-[2px] bg-white rounded-[10px] flex items-center justify-center">
+              <span class="text-blue-600 font-black text-xl font-inter">K</span>
+            </div>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-black text-lg text-primary tracking-tight leading-none">K PARTNERS</span>
+            <span class="text-[10px] text-gray-400 tracking-[0.2em] font-medium">BUSINESS SOLUTIONS</span>
+          </div>
+        </a>
+        <nav class="hidden md:flex items-center gap-8 text-sm">
+          <a href="about.html" class="text-gray-600 hover:text-accent transition-colors font-medium">会社概要</a>
+          <a href="service.html" class="text-gray-600 hover:text-accent transition-colors font-medium">事業内容</a>
+          <a href="contact.html" class="text-accent font-medium">お問い合わせ</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Simple Hero -->
+    <section class="pt-32 pb-16 bg-white">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <p class="fade-in text-accent text-sm font-medium tracking-widest mb-4 font-inter uppercase">Contact</p>
+        <h1 class="fade-in text-4xl md:text-5xl font-bold text-primary mb-6">お問い合わせ</h1>
+        <p class="fade-in text-gray-500 text-lg max-w-xl mx-auto">
+          ご質問やご相談がございましたら、<br>
+          お気軽にお問い合わせください。
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="py-20 bg-surface">
+      <div class="max-w-4xl mx-auto px-6">
+
+        <div class="grid md:grid-cols-3 gap-12">
+
+          <!-- Left: Contact Info -->
+          <div class="md:col-span-1 fade-in">
+            <h2 class="text-2xl font-bold text-primary mb-6">お問い合わせ先</h2>
+
+            <!-- Phone -->
+            <div class="mb-8">
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-10 h-10 rounded-lg bg-accent flex items-center justify-center">
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                  </svg>
+                </div>
+                <p class="text-sm text-gray-500">電話番号</p>
+              </div>
+              <a href="tel:0368216584" class="text-2xl font-bold text-primary font-inter hover:text-accent transition-colors">
+                03-6821-6584
+              </a>
+              <p class="text-sm text-gray-500 mt-1">受付: 平日 9:00 - 18:00</p>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-8">
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-10 h-10 rounded-lg bg-accent flex items-center justify-center">
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  </svg>
+                </div>
+                <p class="text-sm text-gray-500">メールアドレス</p>
+              </div>
+              <a href="mailto:info@k-partners.online" class="text-lg font-bold text-primary hover:text-accent transition-colors">
+                info@k-partners.online
+              </a>
+            </div>
+
+            <!-- Address -->
+            <div class="mb-8">
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-10 h-10 rounded-lg bg-accent flex items-center justify-center">
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  </svg>
+                </div>
+                <p class="text-sm text-gray-500">所在地</p>
+              </div>
+              <p class="text-primary text-sm leading-relaxed">
+                〒145-0066<br>
+                東京都大田区南雪谷三丁目3番1号<br>
+                サイプレスヤマト105
+              </p>
+            </div>
+
+            <!-- Access -->
+            <div>
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-10 h-10 rounded-lg bg-gray-500 flex items-center justify-center">
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+                  </svg>
+                </div>
+                <p class="text-sm text-gray-500">最寄り駅</p>
+              </div>
+              <p class="text-primary text-sm">東急池上線「雪が谷大塚駅」徒歩7分</p>
+              <p class="text-primary text-sm">東急池上線「石川台駅」徒歩9分</p>
+            </div>
+          </div>
+
+          <!-- Right: Contact Form -->
+          <div class="md:col-span-2 fade-in">
+            <div class="bg-white rounded-2xl border border-border p-8 shadow-sm">
+              <h2 class="text-2xl font-bold text-primary mb-2">フォームでのお問い合わせ</h2>
+              <p class="text-gray-500 text-sm mb-8">以下のフォームに必要事項をご記入ください。</p>
+
+              <form action="https://formsubmit.co/info@k-partners.online" method="POST">
+                <!-- FormSubmit設定 -->
+                <input type="hidden" name="_next" value="https://k-partners.online/thanks.html">
+                <input type="hidden" name="_subject" value="【Kパートナーズ】お問い合わせがありました">
+                <input type="hidden" name="_captcha" value="true">
+                <input type="hidden" name="_template" value="table">
+                <input type="text" name="_honey" style="display:none">
+
+                <!-- Name -->
+                <div class="mb-6">
+                  <label for="name" class="block text-sm font-medium text-primary mb-2">
+                    お名前 <span class="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    class="w-full px-4 py-3 border border-border rounded-lg text-primary placeholder-gray-400 transition-all"
+                    placeholder="山田 太郎"
+                  >
+                </div>
+
+                <!-- Company -->
+                <div class="mb-6">
+                  <label for="company" class="block text-sm font-medium text-primary mb-2">
+                    会社名
+                  </label>
+                  <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    class="w-full px-4 py-3 border border-border rounded-lg text-primary placeholder-gray-400 transition-all"
+                    placeholder="株式会社〇〇"
+                  >
+                </div>
+
+                <!-- Email -->
+                <div class="mb-6">
+                  <label for="email" class="block text-sm font-medium text-primary mb-2">
+                    メールアドレス <span class="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    class="w-full px-4 py-3 border border-border rounded-lg text-primary placeholder-gray-400 transition-all"
+                    placeholder="example@email.com"
+                  >
+                </div>
+
+                <!-- Phone -->
+                <div class="mb-6">
+                  <label for="phone" class="block text-sm font-medium text-primary mb-2">
+                    電話番号
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    class="w-full px-4 py-3 border border-border rounded-lg text-primary placeholder-gray-400 transition-all"
+                    placeholder="090-1234-5678"
+                  >
+                </div>
+
+                <!-- Subject -->
+                <div class="mb-6">
+                  <label for="subject" class="block text-sm font-medium text-primary mb-2">
+                    お問い合わせ内容 <span class="text-red-500">*</span>
+                  </label>
+                  <select
+                    id="subject"
+                    name="subject"
+                    required
+                    class="w-full px-4 py-3 border border-border rounded-lg text-primary bg-white transition-all"
+                  >
+                    <option value="">選択してください</option>
+                    <option value="システム開発について">システム開発について</option>
+                    <option value="デジタルマーケティングについて">デジタルマーケティングについて</option>
+                    <option value="AI・DX支援について">AI・DX支援について</option>
+                    <option value="財務コンサルティングについて">財務コンサルティングについて</option>
+                    <option value="その他">その他</option>
+                  </select>
+                </div>
+
+                <!-- Message -->
+                <div class="mb-8">
+                  <label for="message" class="block text-sm font-medium text-primary mb-2">
+                    メッセージ <span class="text-red-500">*</span>
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    required
+                    class="w-full px-4 py-3 border border-border rounded-lg text-primary placeholder-gray-400 transition-all resize-none"
+                    placeholder="お問い合わせ内容をご記入ください"
+                  ></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <button
+                  type="submit"
+                  class="w-full bg-accent hover:bg-accent-dark text-white font-bold py-4 px-8 rounded-lg transition-colors"
+                >
+                  送信する
+                </button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 py-16 text-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-12">
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="relative w-11 h-11">
+              <div class="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl"></div>
+              <div class="absolute inset-[2px] bg-gray-900 rounded-[10px] flex items-center justify-center">
+                <span class="text-blue-400 font-black text-xl font-inter">K</span>
+              </div>
+            </div>
+            <div>
+              <p class="font-black text-lg tracking-tight">K PARTNERS</p>
+              <p class="text-[10px] text-gray-500 tracking-[0.2em]">BUSINESS SOLUTIONS</p>
+            </div>
+          </div>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            〒145-0066<br>
+            東京都大田区南雪谷三丁目3番1号<br>
+            サイプレスヤマト105<br><br>
+            TEL: 03-6821-6584<br>
+            Mail: <a href="mailto:info@k-partners.online" class="hover:text-white">info@k-partners.online</a>
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-12">
+          <div>
+            <p class="font-medium text-sm mb-4">ページ</p>
+            <ul class="space-y-3 text-sm text-gray-400">
+              <li><a href="index.html" class="hover:text-white transition-colors">ホーム</a></li>
+              <li><a href="about.html" class="hover:text-white transition-colors">会社概要</a></li>
+              <li><a href="service.html" class="hover:text-white transition-colors">事業内容</a></li>
+              <li><a href="contact.html" class="hover:text-white transition-colors">お問い合わせ</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-medium text-sm mb-4">事業内容</p>
+            <ul class="space-y-3 text-sm text-gray-400">
+              <li>システム開発</li>
+              <li>デジタルマーケティング</li>
+              <li>AI・DX支援</li>
+              <li>財務コンサルティング</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-gray-800 text-center">
+        <p class="text-xs text-gray-500">&copy; 2025 K Partners LLC. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Intersection Observer for animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in, .scale-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
