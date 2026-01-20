@@ -256,13 +256,14 @@
               <h2 class="text-2xl font-bold text-primary mb-2">フォームでのお問い合わせ</h2>
               <p class="text-gray-500 text-sm mb-8">以下のフォームに必要事項をご記入ください。</p>
 
-              <form action="https://formsubmit.co/info@k-partners.online" method="POST">
-                <!-- FormSubmit設定 -->
-                <input type="hidden" name="_next" value="https://k-partners.online/thanks.html">
-                <input type="hidden" name="_subject" value="【Kパートナーズ】お問い合わせがありました">
-                <input type="hidden" name="_captcha" value="true">
-                <input type="hidden" name="_template" value="table">
-                <input type="text" name="_honey" style="display:none">
+              <form action="https://api.web3forms.com/submit" method="POST">
+                <!-- Web3Forms設定 -->
+                <input type="hidden" name="access_key" value="01992473-3273-4649-88c2-b1aef846be80">
+                <input type="hidden" name="redirect" value="https://k-partners.online/thanks.html">
+                <input type="hidden" name="subject" value="【Kパートナーズ】お問い合わせがありました">
+                <input type="hidden" name="from_name" value="Kパートナーズお問い合わせフォーム">
+                <!-- スパム対策（非表示のチェックボックス） -->
+                <input type="checkbox" name="botcheck" class="hidden" style="display:none">
 
                 <!-- Name -->
                 <div class="mb-6">
