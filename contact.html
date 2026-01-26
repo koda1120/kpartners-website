@@ -19,9 +19,7 @@
   <meta name="twitter:description" content="サービスに関するご相談・お見積りはこちら。TEL: 03-6821-6584 / お問い合わせフォームからお気軽にご連絡ください。">
   <meta name="twitter:image" content="https://k-partners.online/images/hero-bg.webp">
   <!-- Favicon -->
-  <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -116,22 +114,6 @@
       outline: none;
       border-color: #3b82f6;
       box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-    }
-
-    /* Animated Dots */
-    .dots-grid {
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(rgba(59, 130, 246, 0.3) 1px, transparent 1px);
-      background-size: 40px 40px;
-    }
-
-    /* Info Card Hover */
-    .info-card {
-      transition: all 0.3s ease;
-    }
-    .info-card:hover {
-      transform: translateX(8px);
     }
   </style>
 </head>
@@ -338,7 +320,7 @@
                     <option value="">選択してください</option>
                     <option value="システム開発について">システム開発について</option>
                     <option value="デジタルマーケティングについて">デジタルマーケティングについて</option>
-                    <option value="AI・DX支援について">AI・DX支援について</option>
+                    <option value="AI・DX内製化支援について">AI・DX内製化支援について</option>
                     <option value="財務コンサルティングについて">財務コンサルティングについて</option>
                     <option value="その他">その他</option>
                   </select>
@@ -414,10 +396,10 @@
           <div>
             <p class="font-medium text-sm mb-4">事業内容</p>
             <ul class="space-y-3 text-sm text-gray-400">
-              <li>システム開発</li>
-              <li>デジタルマーケティング</li>
-              <li>AI・DX支援</li>
-              <li>財務コンサルティング</li>
+              <li><a href="service.html#system" class="hover:text-white transition-colors">システム開発</a></li>
+              <li><a href="service.html#marketing" class="hover:text-white transition-colors">デジタルマーケティング</a></li>
+              <li><a href="service.html#dx" class="hover:text-white transition-colors">AI・DX内製化支援</a></li>
+              <li><a href="service.html#finance" class="hover:text-white transition-colors">財務コンサルティング</a></li>
             </ul>
           </div>
         </div>
@@ -438,7 +420,7 @@
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.fade-in, .scale-in').forEach(el => observer.observe(el));
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
 
 </body>

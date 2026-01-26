@@ -19,9 +19,7 @@
   <meta name="twitter:description" content="システム開発、デジタルマーケティング、AI・DX内製化支援、財務コンサルティングの4つの事業で、企業のデジタル変革と成長戦略を支援します。">
   <meta name="twitter:image" content="https://k-partners.online/images/hero-bg.webp">
   <!-- Favicon -->
-  <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -116,13 +114,9 @@
       transform: translateY(0);
     }
 
-    /* Hover lift */
-    .hover-lift {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .hover-lift:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    /* Scroll margin for anchor links (header height + padding) */
+    .service-section {
+      scroll-margin-top: 100px;
     }
   </style>
 </head>
@@ -179,7 +173,7 @@
         <div class="space-y-0">
 
           <!-- Service 1: System Development -->
-          <div class="fade-in border-t border-gray-200 py-12">
+          <div id="system" class="service-section fade-in border-t border-gray-200 py-12">
             <div class="grid md:grid-cols-12 gap-8 items-start">
               <div class="md:col-span-1">
                 <span class="text-5xl font-black text-gray-100 font-inter">01</span>
@@ -210,7 +204,7 @@
           </div>
 
           <!-- Service 2: Digital Marketing -->
-          <div class="fade-in border-t border-gray-200 py-12">
+          <div id="marketing" class="service-section fade-in border-t border-gray-200 py-12">
             <div class="grid md:grid-cols-12 gap-8 items-start">
               <div class="md:col-span-1">
                 <span class="text-5xl font-black text-gray-100 font-inter">02</span>
@@ -241,7 +235,7 @@
           </div>
 
           <!-- Service 3: AI/DX -->
-          <div class="fade-in border-t border-gray-200 py-12">
+          <div id="dx" class="service-section fade-in border-t border-gray-200 py-12">
             <div class="grid md:grid-cols-12 gap-8 items-start">
               <div class="md:col-span-1">
                 <span class="text-5xl font-black text-gray-100 font-inter">03</span>
@@ -254,7 +248,7 @@
                     </svg>
                   </div>
                   <div>
-                    <h3 class="text-xl font-bold text-primary">AI・DX支援</h3>
+                    <h3 class="text-xl font-bold text-primary">AI・DX内製化支援</h3>
                     <p class="text-xs text-gray-400 font-inter">AI & DX Solutions</p>
                   </div>
                 </div>
@@ -272,7 +266,7 @@
           </div>
 
           <!-- Service 4: Financial Consulting -->
-          <div class="fade-in border-t border-b border-gray-200 py-12">
+          <div id="finance" class="service-section fade-in border-t border-b border-gray-200 py-12">
             <div class="grid md:grid-cols-12 gap-8 items-start">
               <div class="md:col-span-1">
                 <span class="text-5xl font-black text-gray-100 font-inter">04</span>
@@ -459,10 +453,10 @@
           <div>
             <p class="font-medium text-sm mb-4">事業内容</p>
             <ul class="space-y-3 text-sm text-gray-400">
-              <li>システム開発</li>
-              <li>デジタルマーケティング</li>
-              <li>AI・DX支援</li>
-              <li>財務コンサルティング</li>
+              <li><a href="#system" class="hover:text-white transition-colors">システム開発</a></li>
+              <li><a href="#marketing" class="hover:text-white transition-colors">デジタルマーケティング</a></li>
+              <li><a href="#dx" class="hover:text-white transition-colors">AI・DX内製化支援</a></li>
+              <li><a href="#finance" class="hover:text-white transition-colors">財務コンサルティング</a></li>
             </ul>
           </div>
         </div>

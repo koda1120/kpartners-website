@@ -19,10 +19,10 @@
   <meta name="twitter:description" content="合同会社Kパートナーズの会社情報。代表 行田裕哉、2025年11月設立。所在地：東京都大田区南雪谷。テクノロジーで未来を創造するパートナーです。">
   <meta name="twitter:image" content="https://k-partners.online/images/hero-bg.webp">
   <!-- Favicon -->
-  <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
@@ -95,15 +95,6 @@
       background: #e5e5e5;
     }
     .timeline-item:last-child::after { display: none; }
-
-    /* Number highlight */
-    .number-highlight {
-      font-size: 8rem;
-      font-weight: 900;
-      line-height: 1;
-      color: transparent;
-      -webkit-text-stroke: 2px #3b82f6;
-    }
 
     /* Table style */
     .info-row {
@@ -195,7 +186,7 @@
                 <p class="text-gray-500">LP制作、Webサイト構築、デジタル広告運用代行</p>
               </div>
               <div class="timeline-item slide-left">
-                <h3 class="font-bold text-xl text-primary mb-2">AI・DX内製化支援事業</h3>
+                <h3 class="font-bold text-xl text-primary mb-2">AI・DX内製化支援</h3>
                 <p class="text-gray-500">生成AI導入コンサル、DX人材育成、組織設計支援</p>
               </div>
               <div class="timeline-item slide-left">
@@ -334,7 +325,7 @@
   <!-- Footer -->
   <footer class="bg-gray-900 py-16 text-white">
     <div class="max-w-6xl mx-auto px-6">
-      <div class="flex flex-col md:flex-row justify-between gap-12 mb-12">
+      <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-12">
         <div>
           <div class="flex items-center gap-3 mb-6">
             <div class="relative w-11 h-11">
@@ -348,23 +339,37 @@
               <p class="text-[10px] text-gray-500 tracking-[0.2em]">BUSINESS SOLUTIONS</p>
             </div>
           </div>
-          <p class="text-sm text-gray-400">〒145-0066<br>東京都大田区南雪谷三丁目3番1号<br>サイプレスヤマト105</p>
-          <p class="text-sm text-gray-400 mt-4">TEL: 03-6821-6584<br>Mail: <a href="mailto:info@k-partners.online" class="hover:text-white">info@k-partners.online</a></p>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            〒145-0066<br>
+            東京都大田区南雪谷三丁目3番1号<br>
+            サイプレスヤマト105<br><br>
+            TEL: 03-6821-6584<br>
+            Mail: <a href="mailto:info@k-partners.online" class="hover:text-white">info@k-partners.online</a>
+          </p>
         </div>
-        <div class="flex gap-16">
+        <div class="grid grid-cols-2 gap-12">
           <div>
-            <p class="font-bold text-sm mb-4">Pages</p>
-            <ul class="space-y-2 text-sm text-gray-400">
-              <li><a href="index.html" class="hover:text-white">ホーム</a></li>
-              <li><a href="about.html" class="hover:text-white">会社概要</a></li>
-              <li><a href="service.html" class="hover:text-white">事業内容</a></li>
-              <li><a href="contact.html" class="hover:text-white">お問い合わせ</a></li>
+            <p class="font-medium text-sm mb-4">ページ</p>
+            <ul class="space-y-3 text-sm text-gray-400">
+              <li><a href="index.html" class="hover:text-white transition-colors">ホーム</a></li>
+              <li><a href="about.html" class="hover:text-white transition-colors">会社概要</a></li>
+              <li><a href="service.html" class="hover:text-white transition-colors">事業内容</a></li>
+              <li><a href="contact.html" class="hover:text-white transition-colors">お問い合わせ</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-medium text-sm mb-4">事業内容</p>
+            <ul class="space-y-3 text-sm text-gray-400">
+              <li><a href="service.html#system" class="hover:text-white transition-colors">システム開発</a></li>
+              <li><a href="service.html#marketing" class="hover:text-white transition-colors">デジタルマーケティング</a></li>
+              <li><a href="service.html#dx" class="hover:text-white transition-colors">AI・DX内製化支援</a></li>
+              <li><a href="service.html#finance" class="hover:text-white transition-colors">財務コンサルティング</a></li>
             </ul>
           </div>
         </div>
       </div>
-      <div class="pt-8 border-t border-gray-800 text-center text-xs text-gray-500">
-        &copy; 2025 K Partners LLC. All Rights Reserved.
+      <div class="pt-8 border-t border-gray-800 text-center">
+        <p class="text-xs text-gray-500">&copy; 2025 K Partners LLC. All Rights Reserved.</p>
       </div>
     </div>
   </footer>
