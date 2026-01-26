@@ -1,0 +1,14 @@
+# Netlify設定ファイル
+
+# ポートフォリオサブドメインのルーティング
+[[redirects]]
+  from = "https://portfolio.k-partners.online/*"
+  to = "/portfolio/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://portfolio.k-partners.online"
+  to = "/portfolio/index.html"
+  status = 200
+  force = true

@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="プロフェッショナルなポートフォリオ - クリエイティブな作品と専門知識を紹介">
+    <title>ポートフォリオ - プロフェッショナルプロフィール</title>
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <style>
+        /* ==================== CSS Reset ==================== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* ==================== CSS Variables ==================== */
+        :root {
+            /* Primary Colors */
+            --color-primary-50: #F0F9FF;
+            --color-primary-100: #E0F2FE;
+            --color-primary-200: #BAE6FD;
+            --color-primary-300: #7DD3FC;
+            --color-primary-400: #38BDF8;
+            --color-primary-500: #0EA5E9;
+            --color-primary-600: #0284C7;
+            --color-primary-700: #0369A1;
+            --color-primary-800: #075985;
+            --color-primary-900: #0C4A6E;
+
+            /* Neutral Colors */
+            --color-gray-50: #F9FAFB;
+            --color-gray-100: #F3F4F6;
+            --color-gray-200: #E5E7EB;
+            --color-gray-300: #D1D5DB;
+            --color-gray-400: #9CA3AF;
+            --color-gray-500: #6B7280;
+            --color-gray-600: #4B5563;
+            --color-gray-700: #374151;
+            --color-gray-800: #1F2937;
+            --color-gray-900: #111827;
+
+            /* Semantic Colors */
+            --color-success: #10B981;
+            --color-warning: #F59E0B;
+            --color-error: #EF4444;
+            --color-info: #3B82F6;
+
+            /* Special Colors */
+            --color-white: #FFFFFF;
+            --color-black: #000000;
+            --color-overlay: rgba(0, 0, 0, 0.5);
+
+            /* Font Families */
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans JP', Roboto, sans-serif;
+            --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+
+            /* Spacing */
+            --space-0: 0px;
+            --space-1: 4px;
+            --space-2: 8px;
+            --space-3: 12px;
+            --space-4: 16px;
+            --space-5: 20px;
+            --space-6: 24px;
+            --space-8: 32px;
+            --space-10: 40px;
+            --space-12: 48px;
+            --space-16: 64px;
+            --space-20: 80px;
+            --space-24: 96px;
+            --space-32: 128px;
+            --space-40: 160px;
+            --space-48: 192px;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.12), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
+
+            /* Border Radius */
+            --radius-none: 0;
+            --radius-sm: 4px;
+            --radius-base: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-2xl: 32px;
+            --radius-full: 9999px;
+
+            --border-width: 1px;
+            --border-width-thick: 2px;
+
+            /* Animations */
+            --duration-fast: 150ms;
+            --duration-base: 250ms;
+            --duration-slow: 350ms;
+            --duration-slower: 600ms;
+
+            --ease-linear: linear;
+            --ease-in: cubic-bezier(0.4, 0, 1, 1);
+            --ease-out: cubic-bezier(0, 0, 0.2, 1);
+            --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+            --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+            --transition-base: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-colors: color 250ms ease, background-color 250ms ease, border-color 250ms ease;
+            --transition-transform: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-opacity: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ==================== Base Styles ==================== */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--color-gray-700);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ==================== Loading Screen ==================== */
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0d1117;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 500ms ease, visibility 500ms ease;
+        }
+
+        #loading.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ==================== Hero Section ==================== */
+        #hero {
+            position: relative;
+            min-height: 100vh;
+            max-height: 900px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--color-white);
+            overflow: hidden;
+            padding: 0 var(--space-20);
+        }
+
+        #vanta-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: var(--radius-full);
+            border: 4px solid var(--color-white);
+            box-shadow: var(--shadow-xl);
+            margin: 0 auto var(--space-8);
+            object-fit: cover;
+            animation: profile-entrance 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55) backwards;
+        }
+
+        @keyframes profile-entrance {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .hero-title {
+            font-size: 48px;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            font-weight: 700;
+            margin-bottom: var(--space-4);
+            animation: fade-up 600ms 200ms ease-out backwards;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            line-height: 1.4;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: var(--space-8);
+            animation: fade-up 600ms 400ms ease-out backwards;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto var(--space-12);
+            animation: fade-up 600ms 600ms ease-out backwards;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: var(--space-4);
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fade-up 600ms 800ms ease-out backwards;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: var(--radius-md);
+            font-size: 16px;
+            font-weight: 600;
+            transition: var(--transition-base);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: var(--color-white);
+            color: var(--color-primary-600);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-white);
+            border: 2px solid var(--color-white);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary:active {
+            transform: translateY(0);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--color-white);
+            opacity: 0.7;
+            animation: bounce 2s infinite;
+            z-index: 1;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        @keyframes fade-up {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ==================== Section Common Styles ==================== */
+        .section {
+            padding: 120px 80px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 12px;
+            line-height: 16px;
+            letter-spacing: 0.2em;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--color-primary-600);
+            margin-bottom: var(--space-4);
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 36px;
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+            font-weight: 700;
+            color: var(--color-gray-900);
+            margin-bottom: var(--space-4);
+            text-align: center;
+        }
+
+        .section-description {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--color-gray-600);
+            max-width: 720px;
+            margin: 0 auto var(--space-16);
+            text-align: center;
+        }
+
+        /* ==================== About Section ==================== */
+        #about {
+            background: var(--color-gray-50);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-8);
+        }
+
+        .about-card {
+            background: var(--color-white);
+            padding: var(--space-8);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-base);
+        }
+
+        .about-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-card h3 {
+            font-size: 20px;
+            line-height: 1.4;
+            letter-spacing: -0.01em;
+            font-weight: 600;
+            color: var(--color-gray-900);
+            margin-bottom: var(--space-3);
+        }
+
+        .about-card p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--color-gray-600);
+        }
+
+        /* ==================== Skills Section ==================== */
+        #skills {
+            background: var(--color-white);
+        }
+
+        .skills-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .skill-category {
+            margin-bottom: var(--space-10);
+        }
+
+        .skill-category:first-child {
+            margin-top: 0;
+        }
+
+        .skill-category-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--color-gray-900);
+            margin-bottom: var(--space-6);
+        }
+
+        .skill-item {
+            margin-bottom: var(--space-5);
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--space-2);
+        }
+
+        .skill-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-gray-700);
+        }
+
+        .skill-percentage {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-gray-700);
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: var(--color-gray-200);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--color-primary-500), var(--color-primary-600));
+            border-radius: var(--radius-full);
+            transition: width 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+            width: 0;
+        }
+
+        .skill-progress.animate {
+            width: var(--progress);
+        }
+
+        /* ==================== Work Section ==================== */
+        #work {
+            background: var(--color-gray-50);
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-8);
+        }
+
+        .work-card {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-base);
+        }
+
+        .work-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .work-image {
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            position: relative;
+            background: var(--color-gray-200);
+        }
+
+        .work-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 600ms ease;
+        }
+
+        .work-card:hover .work-image img {
+            transform: scale(1.05);
+        }
+
+        .work-content {
+            padding: var(--space-6);
+        }
+
+        .work-title {
+            font-size: 20px;
+            line-height: 1.4;
+            letter-spacing: -0.01em;
+            font-weight: 600;
+            color: var(--color-gray-900);
+            margin-bottom: var(--space-2);
+        }
+
+        .work-description {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--color-gray-600);
+            margin-bottom: var(--space-4);
+        }
+
+        .work-tags {
+            display: flex;
+            gap: var(--space-2);
+            flex-wrap: wrap;
+        }
+
+        .work-tag {
+            padding: 6px 12px;
+            background: var(--color-primary-50);
+            color: var(--color-primary-700);
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* ==================== Timeline Section ==================== */
+        #timeline {
+            background: var(--color-white);
+        }
+
+        .timeline-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--color-gray-200);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: var(--space-12);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -29px;
+            top: 4px;
+            width: 20px;
+            height: 20px;
+            border-radius: var(--radius-full);
+            background: var(--color-primary-500);
+            border: 4px solid var(--color-white);
+            box-shadow: 0 0 0 2px var(--color-gray-200);
+        }
+
+        .timeline-year {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--color-primary-600);
+            margin-bottom: var(--space-2);
+            letter-spacing: 0.05em;
+        }
+
+        .timeline-company {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--color-gray-900);
+            margin-bottom: var(--space-1);
+        }
+
+        .timeline-position {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--color-gray-600);
+            margin-bottom: var(--space-3);
+        }
+
+        .timeline-description {
+            font-size: 14px;
+            color: var(--color-gray-600);
+            line-height: 1.7;
+        }
+
+        /* ==================== Testimonials Section ==================== */
+        #testimonials {
+            background: var(--color-primary-50);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-8);
+        }
+
+        .testimonial-card {
+            background: var(--color-white);
+            padding: var(--space-8);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+
+        .testimonial-quote {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            font-size: 48px;
+            color: var(--color-primary-200);
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-size: 16px;
+            color: var(--color-gray-700);
+            line-height: 1.8;
+            margin-bottom: var(--space-6);
+            font-style: italic;
+            padding-top: var(--space-8);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+        }
+
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-full);
+            object-fit: cover;
+            background: var(--color-gray-200);
+        }
+
+        .testimonial-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--color-gray-900);
+        }
+
+        .testimonial-position {
+            font-size: 14px;
+            color: var(--color-gray-600);
+        }
+
+        /* ==================== Contact Section ==================== */
+        #contact {
+            background: var(--color-white);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: var(--space-5);
+        }
+
+        .form-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-gray-700);
+            margin-bottom: var(--space-2);
+            display: block;
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: var(--space-4);
+            border: 1px solid var(--color-gray-300);
+            border-radius: var(--radius-base);
+            font-size: 16px;
+            font-family: inherit;
+            transition: var(--transition-base);
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--color-primary-500);
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+        }
+
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: var(--space-4) var(--space-8);
+            background: var(--color-primary-500);
+            color: var(--color-white);
+            border: none;
+            border-radius: var(--radius-base);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-base);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form-submit:hover {
+            background: var(--color-primary-600);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-submit:active {
+            transform: translateY(0);
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--space-4);
+            justify-content: center;
+            margin-top: var(--space-12);
+        }
+
+        .social-link {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-gray-100);
+            border-radius: var(--radius-full);
+            color: var(--color-gray-600);
+            transition: var(--transition-base);
+            font-size: 20px;
+        }
+
+        .social-link:hover {
+            background: var(--color-primary-500);
+            color: var(--color-white);
+            transform: translateY(-4px);
+        }
+
+        /* ==================== Footer ==================== */
+        #footer {
+            background: var(--color-gray-900);
+            color: var(--color-white);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-brand {
+            display: none;
+        }
+
+        .footer-section {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .footer-section h4 {
+            display: none;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links li {
+            margin-bottom: 0;
+            font-size: 13px;
+        }
+
+        .footer-links a {
+            color: var(--color-gray-300);
+            transition: var(--transition-colors);
+            font-size: 13px;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid var(--color-gray-800);
+            color: var(--color-gray-400);
+            font-size: 12px;
+        }
+
+        /* ==================== Animations ==================== */
+        .animate {
+            opacity: 0;
+        }
+
+        .animate.animate-in {
+            animation: fade-up 600ms ease-out forwards;
+        }
+
+        /* ==================== Responsive Design ==================== */
+
+        /* Extra Small Devices (275px - 319px) */
+        @media (max-width: 319px) {
+            .section {
+                padding: 36px 12px;
+            }
+
+            #hero {
+                padding: 0 12px;
+                min-height: 100vh;
+            }
+
+            .hero-profile-image {
+                width: 90px;
+                height: 90px;
+                border: 3px solid var(--color-white);
+                margin-bottom: var(--space-6);
+            }
+
+            .hero-title {
+                font-size: 22px;
+                margin-bottom: var(--space-3);
+            }
+
+            .hero-subtitle {
+                font-size: 12px;
+                margin-bottom: var(--space-5);
+            }
+
+            .hero-description {
+                font-size: 13px;
+                line-height: 1.6;
+                margin-bottom: var(--space-6);
+            }
+
+            .hero-ctas {
+                gap: var(--space-2);
+                flex-direction: column;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 13px;
+            }
+
+            .section-label {
+                font-size: 9px;
+            }
+
+            .section-title {
+                font-size: 20px;
+                margin-bottom: var(--space-3);
+            }
+
+            .section-description {
+                font-size: 13px;
+                margin-bottom: var(--space-8);
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-3);
+            }
+
+            .about-card {
+                padding: var(--space-4);
+            }
+
+            .about-card h3 {
+                font-size: 15px;
+                margin-bottom: var(--space-2);
+            }
+
+            .about-card p {
+                font-size: 12px;
+            }
+
+            .skill-category {
+                margin-bottom: var(--space-8);
+            }
+
+            .skill-category-title {
+                font-size: 15px;
+                margin-bottom: var(--space-4);
+            }
+
+            .skill-item {
+                margin-bottom: var(--space-4);
+            }
+
+            .skill-name,
+            .skill-percentage {
+                font-size: 12px;
+            }
+
+            .skill-bar {
+                height: 6px;
+            }
+
+            .work-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-3);
+            }
+
+            .work-content {
+                padding: var(--space-4);
+            }
+
+            .work-title {
+                font-size: 15px;
+                margin-bottom: var(--space-2);
+            }
+
+            .work-description {
+                font-size: 12px;
+                margin-bottom: var(--space-3);
+            }
+
+            .work-tag {
+                font-size: 10px;
+                padding: 4px 8px;
+            }
+
+            .timeline-container {
+                padding-left: 40px;
+            }
+
+            .timeline-line {
+                left: 16px;
+                width: 2px;
+            }
+
+            .timeline-dot {
+                left: -24px;
+                width: 16px;
+                height: 16px;
+                border: 3px solid var(--color-white);
+                top: 2px;
+            }
+
+            .timeline-item {
+                margin-bottom: var(--space-8);
+            }
+
+            .timeline-year {
+                font-size: 11px;
+                margin-bottom: var(--space-1);
+            }
+
+            .timeline-company {
+                font-size: 15px;
+                margin-bottom: var(--space-1);
+            }
+
+            .timeline-position {
+                font-size: 13px;
+                margin-bottom: var(--space-2);
+            }
+
+            .timeline-description {
+                font-size: 12px;
+                line-height: 1.6;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-3);
+            }
+
+            .testimonial-card {
+                padding: var(--space-4);
+            }
+
+            .testimonial-quote {
+                font-size: 36px;
+                top: 16px;
+                left: 16px;
+            }
+
+            .testimonial-text {
+                font-size: 13px;
+                padding-top: var(--space-5);
+                margin-bottom: var(--space-4);
+            }
+
+            .testimonial-name {
+                font-size: 13px;
+            }
+
+            .testimonial-position {
+                font-size: 11px;
+            }
+
+            .testimonial-avatar {
+                width: 36px;
+                height: 36px;
+            }
+
+            .form-group {
+                margin-bottom: var(--space-4);
+            }
+
+            .form-label {
+                font-size: 12px;
+                margin-bottom: var(--space-1);
+            }
+
+            .form-input,
+            .form-textarea {
+                font-size: 13px;
+                padding: 10px;
+            }
+
+            .form-textarea {
+                min-height: 120px;
+            }
+
+            .form-submit {
+                font-size: 13px;
+                padding: 10px 20px;
+            }
+
+            .scroll-indicator {
+                bottom: 20px;
+            }
+
+            .scroll-indicator svg {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        /* Small Devices (320px - 374px) */
+        @media (min-width: 320px) and (max-width: 374px) {
+            .section {
+                padding: 40px 16px;
+            }
+
+            #hero {
+                padding: 0 16px;
+                min-height: 100vh;
+            }
+
+            .hero-profile-image {
+                width: 100px;
+                height: 100px;
+                border: 3px solid var(--color-white);
+            }
+
+            .hero-title {
+                font-size: 24px;
+                margin-bottom: var(--space-3);
+            }
+
+            .hero-subtitle {
+                font-size: 13px;
+                margin-bottom: var(--space-6);
+            }
+
+            .hero-description {
+                font-size: 14px;
+                line-height: 1.6;
+                margin-bottom: var(--space-8);
+            }
+
+            .hero-ctas {
+                gap: var(--space-3);
+                flex-direction: column;
+            }
+
+            .btn {
+                padding: 12px 24px;
+                font-size: 14px;
+            }
+
+            .section-label {
+                font-size: 10px;
+            }
+
+            .section-title {
+                font-size: 22px;
+                margin-bottom: var(--space-3);
+            }
+
+            .section-description {
+                font-size: 14px;
+                margin-bottom: var(--space-10);
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-4);
+            }
+
+            .about-card {
+                padding: var(--space-5);
+            }
+
+            .about-card h3 {
+                font-size: 16px;
+            }
+
+            .about-card p {
+                font-size: 13px;
+            }
+
+            .skill-category-title {
+                font-size: 16px;
+            }
+
+            .skill-name,
+            .skill-percentage {
+                font-size: 13px;
+            }
+
+            .work-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-4);
+            }
+
+            .work-content {
+                padding: var(--space-4);
+            }
+
+            .work-title {
+                font-size: 16px;
+            }
+
+            .work-description {
+                font-size: 13px;
+            }
+
+            .work-tag {
+                font-size: 11px;
+                padding: 4px 8px;
+            }
+
+            .timeline-container {
+                padding-left: 44px;
+            }
+
+            .timeline-line {
+                left: 18px;
+            }
+
+            .timeline-dot {
+                left: -26px;
+                width: 16px;
+                height: 16px;
+                border: 3px solid var(--color-white);
+            }
+
+            .timeline-year {
+                font-size: 12px;
+            }
+
+            .timeline-company {
+                font-size: 16px;
+            }
+
+            .timeline-position {
+                font-size: 14px;
+            }
+
+            .timeline-description {
+                font-size: 13px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-4);
+            }
+
+            .testimonial-card {
+                padding: var(--space-5);
+            }
+
+            .testimonial-text {
+                font-size: 14px;
+                padding-top: var(--space-6);
+            }
+
+            .testimonial-name {
+                font-size: 14px;
+            }
+
+            .testimonial-position {
+                font-size: 12px;
+            }
+
+            .testimonial-avatar {
+                width: 40px;
+                height: 40px;
+            }
+
+            .form-label {
+                font-size: 13px;
+            }
+
+            .form-input,
+            .form-textarea {
+                font-size: 14px;
+                padding: var(--space-3);
+            }
+
+            .form-submit {
+                font-size: 14px;
+                padding: var(--space-3) var(--space-6);
+            }
+
+            .scroll-indicator {
+                bottom: 24px;
+            }
+
+            .scroll-indicator svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
+
+        /* Medium Small Devices (375px - 479px) */
+        @media (min-width: 375px) and (max-width: 479px) {
+            .section {
+                padding: 48px 20px;
+            }
+
+            #hero {
+                padding: 0 20px;
+                min-height: 100vh;
+            }
+
+            .hero-profile-image {
+                width: 120px;
+                height: 120px;
+                border: 3px solid var(--color-white);
+            }
+
+            .hero-title {
+                font-size: 28px;
+            }
+
+            .hero-subtitle {
+                font-size: 14px;
+            }
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+            .hero-ctas {
+                gap: var(--space-3);
+                flex-direction: column;
+            }
+
+            .btn {
+                padding: 14px 28px;
+                font-size: 15px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .section-description {
+                font-size: 15px;
+            }
+
+            .about-grid,
+            .work-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-4);
+            }
+
+            .timeline-container {
+                padding-left: 48px;
+            }
+
+            .timeline-line {
+                left: 20px;
+            }
+
+            .timeline-dot {
+                left: -28px;
+                width: 16px;
+                height: 16px;
+            }
+        }
+
+        /* Large Small Devices (480px - 767px) */
+        @media (min-width: 480px) and (max-width: 767px) {
+            .section {
+                padding: 56px 24px;
+            }
+
+            #hero {
+                padding: 0 24px;
+                min-height: 100vh;
+            }
+
+            .hero-profile-image {
+                width: 140px;
+                height: 140px;
+            }
+
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .hero-subtitle {
+                font-size: 16px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            .hero-ctas {
+                gap: var(--space-4);
+                flex-direction: column;
+            }
+
+            .btn {
+                padding: 14px 32px;
+                font-size: 15px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .section-description {
+                font-size: 15px;
+            }
+
+            .about-grid,
+            .work-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-5);
+            }
+
+            .timeline-container {
+                padding-left: 52px;
+            }
+
+            .timeline-line {
+                left: 22px;
+            }
+
+            .timeline-dot {
+                left: -30px;
+                width: 18px;
+                height: 18px;
+            }
+        }
+
+        /* Medium Devices (768px - 1023px) */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .section {
+                padding: 80px 40px;
+            }
+
+            #hero {
+                padding: 0 40px;
+            }
+
+            .hero-profile-image {
+                width: 160px;
+                height: 160px;
+            }
+
+            .hero-title {
+                font-size: 40px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .hero-description {
+                font-size: 17px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .section-description {
+                font-size: 16px;
+            }
+
+            .about-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--space-6);
+            }
+
+            .work-grid,
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--space-6);
+            }
+        }
+
+        /* Large Devices (1024px - 1279px) */
+        @media (min-width: 1024px) and (max-width: 1279px) {
+            .section {
+                padding: 100px 60px;
+            }
+
+            #hero {
+                padding: 0 60px;
+            }
+
+            .hero-profile-image {
+                width: 170px;
+                height: 170px;
+            }
+
+            .hero-title {
+                font-size: 44px;
+            }
+
+            .section-title {
+                font-size: 34px;
+            }
+        }
+
+        /* Extra Large Devices (1280px - 1440px) */
+        @media (min-width: 1280px) and (max-width: 1440px) {
+            .section {
+                padding: 120px 80px;
+            }
+
+            #hero {
+                padding: 0 80px;
+            }
+        }
+
+        /* Ultra Large Devices (1440px+) */
+        @media (min-width: 1441px) {
+            .section {
+                padding: 120px 80px;
+            }
+
+            #hero {
+                padding: 0 80px;
+            }
+        }
+
+        /* Ensure buttons work properly on all screens */
+        @media (max-width: 767px) {
+            .hero-ctas {
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .hero-ctas {
+                flex-direction: row;
+            }
+
+            .btn {
+                min-width: 180px;
+                width: auto;
+            }
+        }
+
+        /* ==================== Print Styles ==================== */
+        @media print {
+            #loading,
+            .scroll-indicator,
+            #vanta-background {
+                display: none;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div id="vanta-background"></div>
+
+        <div class="hero-content">
+            <img src="profilephoto.jpg" alt="行田裕哉のプロフィール画像" class="hero-profile-image">
+            <h1 class="hero-title">行田 裕哉</h1>
+            <p class="hero-subtitle">AI × Web Developer</p>
+            <p class="hero-description">
+                18年のビジネス実務経験とAI技術を融合させ、企業のデジタル化を実現。現場理解に基づく、本当に使われるシステムを開発します。
+            </p>
+
+            <div class="hero-ctas">
+                <a href="#work" class="btn btn-primary">作品を見る</a>
+                <a href="#contact" class="btn btn-secondary">お問い合わせ</a>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <p class="section-label animate">ABOUT</p>
+        <h2 class="section-title animate">実務経験とAI技術の融合</h2>
+        <p class="section-description animate">
+            22歳で一般事務からキャリアをスタートし、18年のビジネス経験を積み、現在はAI技術を活用したシステム開発で企業のデジタル化を支援しています。
+        </p>
+
+        <div class="about-grid">
+            <div class="about-card animate">
+                <h3>💼 18年の実務経験</h3>
+                <p>ビジネスの現場で培った深い業務理解により、本当に必要とされる機能を見極め、実用的なシステムを構築します。</p>
+            </div>
+            <div class="about-card animate">
+                <h3>🤖 AI技術の活用</h3>
+                <p>ChatGPTなどの最新AI技術を駆使し、業務の自動化・効率化を実現。データ分析や自動応答システムを提供します。</p>
+            </div>
+            <div class="about-card animate">
+                <h3>🎯 ユーザー視点の設計</h3>
+                <p>現場の声を聞き、使いやすさと機能性を両立。導入後の運用定着まで伴走し、実効性の高いDXを推進します。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <p class="section-label animate">SKILLS</p>
+        <h2 class="section-title animate">専門スキル</h2>
+
+        <div class="skills-container">
+            <div class="skill-category animate">
+                <h3 class="skill-category-title">フロントエンド</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">React</span>
+                        <span class="skill-percentage">90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="--progress: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Vue.js</span>
+                        <span class="skill-percentage">85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="--progress: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">TypeScript</span>
+                        <span class="skill-percentage">88%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="--progress: 88%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category animate">
+                <h3 class="skill-category-title">バックエンド</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Node.js</span>
+                        <span class="skill-percentage">85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="--progress: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Python</span>
+                        <span class="skill-percentage">80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="--progress: 80%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category animate">
+                <h3 class="skill-category-title">3D & WebGL</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Three.js</span>
+                        <span class="skill-percentage">92%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="--progress: 92%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">GLSL Shaders</span>
+                        <span class="skill-percentage">78%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="--progress: 78%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work" class="section">
+        <p class="section-label animate">WORK</p>
+        <h2 class="section-title animate">プロジェクト実績</h2>
+
+        <div class="work-grid">
+            <div class="work-card animate">
+                <div class="work-image">
+                    <img src="project-fraud-simulator.png" alt="投資詐欺シミュレーター">
+                </div>
+                <div class="work-content">
+                    <h3 class="work-title">投資詐欺シミュレーター</h3>
+                    <p class="work-description">
+                        詐欺の手口を体験学習できる教育的Webアプリケーション。リアルな詐欺シナリオを通じて、利用者の防犯意識を高めることを目的としています。
+                    </p>
+                    <div class="work-tags">
+                        <span class="work-tag">HTML/CSS</span>
+                        <span class="work-tag">JavaScript</span>
+                        <span class="work-tag">Netlify</span>
+                    </div>
+                    <a href="https://6niki-sagisimulator.netlify.app/" target="_blank" rel="noopener noreferrer" style="display: inline-block; margin-top: 12px; color: var(--color-primary-600); font-weight: 600; text-decoration: none;">サイトを見る →</a>
+                </div>
+            </div>
+
+            <div class="work-card animate">
+                <div class="work-image">
+                    <img src="project-knowledgeflow.png" alt="KnowledgeFlow">
+                </div>
+                <div class="work-content">
+                    <h3 class="work-title">KnowledgeFlow - オンライン学習プラットフォーム</h3>
+                    <p class="work-description">
+                        買い切り型のオンライン学習講座LP。Three.jsによる3Dビジュアル、パララックス効果を実装した最新Web技術を活用したランディングページです。
+                    </p>
+                    <div class="work-tags">
+                        <span class="work-tag">Three.js</span>
+                        <span class="work-tag">JavaScript</span>
+                        <span class="work-tag">レスポンシブ</span>
+                    </div>
+                    <a href="https://knowledgeflowlp.netlify.app/" target="_blank" rel="noopener noreferrer" style="display: inline-block; margin-top: 12px; color: var(--color-primary-600); font-weight: 600; text-decoration: none;">サイトを見る →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="section">
+        <p class="section-label animate">EXPERIENCE</p>
+        <h2 class="section-title animate">経歴</h2>
+
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+
+            <div class="timeline-item animate">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">2024 - 現在</div>
+                <div class="timeline-company">AI×Web開発スペシャリスト</div>
+                <div class="timeline-position">AI開発エンジニア</div>
+                <div class="timeline-description">
+                    実務経験とAI技術を融合させ、企業のデジタル化を支援するWebサイト・システム開発に従事。ChatGPTなどの最新AI技術を活用した業務効率化・自動化ソリューションを提供。
+                </div>
+            </div>
+
+            <div class="timeline-item animate">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">2020 - 2024</div>
+                <div class="timeline-company">AI技術習得・システム開発</div>
+                <div class="timeline-position">フルスタック開発者</div>
+                <div class="timeline-description">
+                    最新のAI技術とWeb開発スキルを習得。データベース構築・運用、業務システム開発、DX推進プロジェクトに携わり、実用的なソリューション設計スキルを磨く。
+                </div>
+            </div>
+
+            <div class="timeline-item animate">
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">2007 - 2020</div>
+                <div class="timeline-company">ビジネス実務経験</div>
+                <div class="timeline-position">一般事務・業務管理</div>
+                <div class="timeline-description">
+                    22歳で一般事務からキャリアをスタートし、13年以上にわたりビジネスの現場で経験を積み重ねる。現場の業務フローや課題を深く理解し、ユーザー視点に立った問題解決能力を養う。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section">
+        <p class="section-label animate">TESTIMONIALS</p>
+        <h2 class="section-title animate">お客様の声</h2>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card animate">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">
+                    非常に高品質な成果物を納期通りに納品していただきました。技術力はもちろん、コミュニケーション能力も素晴らしく、安心してプロジェクトを任せることができました。
+                </p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; font-weight: 600;">M</div>
+                    <div>
+                        <div class="testimonial-name">田中 美咲</div>
+                        <div class="testimonial-position">プロジェクトマネージャー, 株式会社グローバルソリューションズ</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card animate">
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">
+                    複雑な要件にも柔軟に対応していただき、期待以上の結果を出していただきました。今後も継続的にお願いしたいと考えています。
+                </p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; font-weight: 600;">K</div>
+                    <div>
+                        <div class="testimonial-name">山本 健一</div>
+                        <div class="testimonial-position">代表取締役, ネクストイノベーション株式会社</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <p class="section-label animate">CONTACT</p>
+        <h2 class="section-title animate">お問い合わせ</h2>
+        <p class="section-description animate">
+            プロジェクトのご相談やご質問など、お気軽にお問い合わせください。
+        </p>
+
+        <form class="contact-form animate" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+            <!-- Web3Forms設定 -->
+            <input type="hidden" name="access_key" value="01992473-3273-4649-88c2-b1aef846be80">
+            <input type="hidden" name="redirect" value="https://portfolio.k-partners.online/thanks.html">
+            <input type="hidden" name="subject" value="【ポートフォリオ】お問い合わせがありました">
+            <input type="hidden" name="from_name" value="行田裕哉ポートフォリオ">
+            <!-- スパム対策 -->
+            <input type="checkbox" name="botcheck" style="display:none">
+
+            <div class="form-group">
+                <label for="name" class="form-label">お名前</label>
+                <input type="text" id="name" name="name" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="form-label">メールアドレス</label>
+                <input type="email" id="email" name="email" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message" class="form-label">メッセージ</label>
+                <textarea id="message" name="message" class="form-textarea" required></textarea>
+            </div>
+
+            <button type="submit" class="form-submit">送信する</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>行田 裕哉</h3>
+                <p>最先端のWeb技術で、ビジネスの成長を支援します。</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>クイックリンク</h4>
+                <ul class="footer-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>お問い合わせ</h4>
+                <ul class="footer-links">
+                    <li>📧 kouda@ikemen.ltd</li>
+                    <li>📍 東京都</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            &copy; 2024 行田 裕哉. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        let vantaEffect = null;
+
+        // Load VANTA.js WAVES effect
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js';
+        script.onload = () => {
+            // Initialize WAVES effect
+            vantaEffect = VANTA.WAVES({
+                el: "#vanta-background",
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                scale: 1.00,
+                scaleMobile: 1.00,
+                color: 0x0080ff,
+                shininess: 40.00,
+                waveHeight: 15.00,
+                waveSpeed: 0.60,
+                zoom: 0.75
+            });
+
+            // Hide loading screen
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hide');
+            }, 500);
+        };
+        document.body.appendChild(script);
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations using Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Stagger animation for multiple elements
+                    setTimeout(() => {
+                        entry.target.classList.add('animate-in');
+
+                        // Animate skill bars
+                        if (entry.target.classList.contains('skill-category')) {
+                            const progressBars = entry.target.querySelectorAll('.skill-progress');
+                            progressBars.forEach((bar, i) => {
+                                setTimeout(() => {
+                                    bar.classList.add('animate');
+                                }, i * 100);
+                            });
+                        }
+                    }, index * 100);
+                }
+            });
+        }, {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        });
+
+        // Observe all animated elements
+        document.querySelectorAll('.animate').forEach(el => {
+            observer.observe(el);
+        });
+
+        // フォームはFormSubmitに直接送信されるため、JavaScriptでの処理は不要
+
+        // Cleanup Vanta effect on page unload
+        window.addEventListener('beforeunload', () => {
+            if (vantaEffect) {
+                vantaEffect.destroy();
+            }
+        });
+
+        // Add debounce function for performance
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Handle window resize
+        const handleResize = debounce(() => {
+            if (vantaEffect) {
+                vantaEffect.resize();
+            }
+        }, 250);
+
+        window.addEventListener('resize', handleResize);
+    </script>
+</body>
+</html>
