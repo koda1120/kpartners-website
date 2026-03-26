@@ -4,19 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>会社概要 | 合同会社Kパートナーズ</title>
-  <meta name="description" content="合同会社Kパートナーズの会社情報。代表 行田裕哉、2025年11月設立。所在地：東京都大田区南雪谷。テクノロジーで未来を創造するパートナーです。">
+  <meta name="description" content="合同会社Kパートナーズの会社情報。代表 行田裕哉、2025年11月設立。システム開発、デジタルマーケティング、AI・DX内製化支援、財務コンサルティング、研修事業の5事業を展開。">
   <!-- OGP -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://k-partners.online/about.html">
   <meta property="og:title" content="会社概要 | 合同会社Kパートナーズ">
-  <meta property="og:description" content="合同会社Kパートナーズの会社情報。代表 行田裕哉、2025年11月設立。所在地：東京都大田区南雪谷。テクノロジーで未来を創造するパートナーです。">
+  <meta property="og:description" content="合同会社Kパートナーズの会社情報。代表 行田裕哉、2025年11月設立。テクノロジーで未来を創造するパートナーです。">
   <meta property="og:image" content="https://k-partners.online/images/hero-bg.webp">
   <meta property="og:site_name" content="合同会社Kパートナーズ">
   <meta property="og:locale" content="ja_JP">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="会社概要 | 合同会社Kパートナーズ">
-  <meta name="twitter:description" content="合同会社Kパートナーズの会社情報。代表 行田裕哉、2025年11月設立。所在地：東京都大田区南雪谷。テクノロジーで未来を創造するパートナーです。">
+  <meta name="twitter:description" content="合同会社Kパートナーズの会社情報。代表 行田裕哉、2025年11月設立。テクノロジーで未来を創造するパートナーです。">
   <meta name="twitter:image" content="https://k-partners.online/images/hero-bg.webp">
   <!-- Favicon -->
   <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
@@ -29,7 +29,7 @@
       theme: {
         extend: {
           fontFamily: { sans: ['Noto Sans JP', 'sans-serif'], inter: ['Inter', 'sans-serif'] },
-          colors: { primary: '#0f172a', accent: '#3b82f6', surface: '#f8fafc', border: '#e2e8f0' }
+          colors: { primary: '#0f172a', accent: '#3b82f6', 'accent-dark': '#1d4ed8', surface: '#f8fafc', border: '#e2e8f0' }
         }
       }
     }
@@ -38,7 +38,6 @@
     html { scroll-behavior: smooth; }
     body { -webkit-font-smoothing: antialiased; }
 
-    /* Split screen hero */
     .split-hero {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -48,7 +47,6 @@
       .split-hero { grid-template-columns: 1fr; }
     }
 
-    /* Sticky image */
     .sticky-image {
       position: relative;
       height: 100vh;
@@ -56,52 +54,31 @@
     }
     .sticky-image img {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       object-fit: cover;
       object-position: center;
     }
 
-    /* Slide in animations */
-    .slide-left { opacity: 0; transform: translateX(-60px); transition: all 0.8s ease; }
-    .slide-right { opacity: 0; transform: translateX(60px); transition: all 0.8s ease; }
-    .slide-up { opacity: 0; transform: translateY(60px); transition: all 0.8s ease; }
+    .slide-left { opacity: 0; transform: translateX(-40px); transition: all 0.8s ease; }
+    .slide-right { opacity: 0; transform: translateX(40px); transition: all 0.8s ease; }
+    .slide-up { opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
     .slide-left.active, .slide-right.active, .slide-up.active { opacity: 1; transform: translate(0); }
 
-    /* Timeline */
-    .timeline-item {
-      position: relative;
-      padding-left: 40px;
-    }
+    .timeline-item { position: relative; padding-left: 40px; }
     .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 8px;
-      width: 12px;
-      height: 12px;
-      background: #3b82f6;
-      border-radius: 50%;
+      content: ''; position: absolute; left: 0; top: 8px;
+      width: 12px; height: 12px; background: #3b82f6; border-radius: 50%;
     }
     .timeline-item::after {
-      content: '';
-      position: absolute;
-      left: 5px;
-      top: 24px;
-      width: 2px;
-      height: calc(100% - 8px);
-      background: #e5e5e5;
+      content: ''; position: absolute; left: 5px; top: 24px;
+      width: 2px; height: calc(100% - 8px); background: #e5e5e5;
     }
     .timeline-item:last-child::after { display: none; }
 
-    /* Table style */
     .info-row {
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      border-bottom: 1px solid #e5e5e5;
-      padding: 24px 0;
+      display: grid; grid-template-columns: 160px 1fr;
+      border-bottom: 1px solid #e5e5e5; padding: 24px 0;
     }
     .info-row:first-child { border-top: 1px solid #e5e5e5; }
   </style>
@@ -110,7 +87,7 @@
 
   <!-- Header -->
   <header class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
-    <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-6xl mx-auto px-6">
       <div class="flex items-center justify-between h-20">
         <a href="index.html" class="group flex items-center gap-3">
           <div class="relative w-11 h-11">
@@ -129,7 +106,20 @@
           <a href="service.html" class="text-gray-500 hover:text-primary transition-colors">事業内容</a>
           <a href="contact.html" class="text-gray-500 hover:text-primary transition-colors">お問い合わせ</a>
         </nav>
+        <button id="menuBtn" class="md:hidden text-primary p-2" aria-label="メニュー">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
       </div>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100">
+      <nav class="max-w-6xl mx-auto px-6 py-6 flex flex-col gap-4">
+        <a href="index.html" class="text-gray-600 hover:text-primary py-2">ホーム</a>
+        <a href="about.html" class="text-accent font-medium py-2">会社概要</a>
+        <a href="service.html" class="text-gray-600 hover:text-primary py-2">事業内容</a>
+        <a href="contact.html" class="text-gray-600 hover:text-primary py-2">お問い合わせ</a>
+      </nav>
     </div>
   </header>
 
@@ -137,26 +127,22 @@
 
     <!-- Split Screen Hero -->
     <section class="split-hero">
-      <!-- Left: Content -->
       <div class="flex items-center py-20 px-6 md:px-16">
         <div class="max-w-lg">
           <p class="slide-left text-accent text-sm font-bold tracking-[0.3em] mb-6 font-inter">ABOUT US</p>
-          <h1 class="slide-left text-5xl md:text-6xl font-black text-primary leading-tight mb-8">
-            会社概要
-          </h1>
+          <h1 class="slide-left text-5xl md:text-6xl font-black text-primary leading-tight mb-8">会社概要</h1>
           <p class="slide-left text-gray-600 text-lg leading-relaxed">
             私たちは、技術の提供と人材の育成を通じて、企業のデジタルトランスフォーメーションを本質的に支援するプロフェッショナル集団です。
           </p>
         </div>
       </div>
-      <!-- Right: Image -->
       <div class="hidden md:block sticky-image">
         <img src="images/Web制作.png" alt="Office" loading="lazy">
       </div>
     </section>
 
     <!-- Philosophy -->
-    <section class="py-32 bg-primary text-white">
+    <section class="py-28 bg-primary text-white">
       <div class="max-w-4xl mx-auto px-6 text-center">
         <p class="slide-up text-accent text-sm font-bold tracking-[0.3em] mb-6 font-inter">PHILOSOPHY</p>
         <h2 class="slide-up text-3xl md:text-5xl font-bold leading-relaxed mb-8">
@@ -169,8 +155,8 @@
       </div>
     </section>
 
-    <!-- Timeline / History -->
-    <section class="py-32 bg-white">
+    <!-- Business & Strength -->
+    <section class="py-28 bg-white">
       <div class="max-w-6xl mx-auto px-6">
         <div class="grid md:grid-cols-2 gap-20">
           <div>
@@ -193,6 +179,10 @@
                 <h3 class="font-bold text-xl text-primary mb-2">財務コンサルティング事業</h3>
                 <p class="text-gray-500">資金調達支援、補助金・助成金申請支援</p>
               </div>
+              <div class="timeline-item slide-left">
+                <h3 class="font-bold text-xl text-primary mb-2">研修事業</h3>
+                <p class="text-gray-500">ビジネスマナー、コミュニケーション、クレーム対応など企業研修</p>
+              </div>
             </div>
           </div>
           <div>
@@ -204,7 +194,7 @@
                   <span class="text-accent text-xl font-bold font-inter">01</span>
                 </div>
                 <h3 class="font-bold text-xl text-primary mb-2">ワンストップ対応</h3>
-                <p class="text-gray-500">開発からマーケティング、財務まで一貫したサポート</p>
+                <p class="text-gray-500">開発からマーケティング、財務、人材育成まで一貫したサポート</p>
               </div>
               <div class="slide-right bg-surface rounded-2xl p-8">
                 <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-4">
@@ -227,7 +217,7 @@
     </section>
 
     <!-- Company Info -->
-    <section class="py-32 bg-surface">
+    <section class="py-28 bg-surface">
       <div class="max-w-4xl mx-auto px-6">
         <div class="text-center mb-16">
           <p class="slide-up text-accent text-sm font-bold tracking-[0.3em] mb-6 font-inter">COMPANY INFO</p>
@@ -282,7 +272,7 @@
     </section>
 
     <!-- Access -->
-    <section class="py-32 bg-white">
+    <section class="py-28 bg-white">
       <div class="max-w-6xl mx-auto px-6">
         <div class="grid md:grid-cols-3 gap-12">
           <div class="slide-left">
@@ -301,7 +291,7 @@
             </div>
           </div>
           <div class="md:col-span-2 slide-right">
-            <div class="rounded-2xl overflow-hidden h-[400px] shadow-2xl">
+            <div class="rounded-2xl overflow-hidden h-[400px]">
               <iframe src="https://maps.google.com/maps?q=%E6%9D%B1%E4%BA%AC%E9%83%BD%E5%A4%A7%E7%94%B0%E5%8C%BA%E5%8D%97%E9%9B%AA%E8%B0%B73-3-1&t=m&z=16&output=embed" width="100%" height="100%" style="border:0;" loading="lazy"></iframe>
             </div>
           </div>
@@ -314,7 +304,7 @@
       <div class="max-w-4xl mx-auto px-6 slide-up">
         <h2 class="text-3xl md:text-4xl font-bold mb-6">お問い合わせ</h2>
         <p class="text-white/80 mb-10">プロジェクトのご相談、お見積りなどお気軽にご連絡ください。</p>
-        <a href="contact.html" class="inline-block bg-white text-accent px-10 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition-all">
+        <a href="contact.html" class="inline-block bg-white text-accent px-10 py-4 rounded-full font-bold text-lg hover:bg-white/90 transition-colors cursor-pointer">
           お問い合わせはこちら
         </a>
       </div>
@@ -364,6 +354,7 @@
               <li><a href="service.html#marketing" class="hover:text-white transition-colors">デジタルマーケティング</a></li>
               <li><a href="service.html#dx" class="hover:text-white transition-colors">AI・DX内製化支援</a></li>
               <li><a href="service.html#finance" class="hover:text-white transition-colors">財務コンサルティング</a></li>
+              <li><a href="service.html#training" class="hover:text-white transition-colors">研修事業</a></li>
             </ul>
           </div>
         </div>
@@ -381,6 +372,10 @@
       });
     }, { threshold: 0.1 });
     document.querySelectorAll('.slide-left, .slide-right, .slide-up').forEach(el => observer.observe(el));
+
+    document.getElementById('menuBtn').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
   </script>
 
 </body>

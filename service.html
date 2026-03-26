@@ -4,19 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>事業内容 | 合同会社Kパートナーズ</title>
-  <meta name="description" content="システム開発、デジタルマーケティング、AI・DX内製化支援、財務コンサルティングの4つの事業で、企業のデジタル変革と成長戦略を支援します。">
+  <meta name="description" content="システム開発、デジタルマーケティング、AI・DX内製化支援、財務コンサルティング、研修事業の5つの事業で、企業のデジタル変革と成長戦略を支援します。">
   <!-- OGP -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://k-partners.online/service.html">
   <meta property="og:title" content="事業内容 | 合同会社Kパートナーズ">
-  <meta property="og:description" content="システム開発、デジタルマーケティング、AI・DX内製化支援、財務コンサルティングの4つの事業で、企業のデジタル変革と成長戦略を支援します。">
+  <meta property="og:description" content="システム開発、デジタルマーケティング、AI・DX内製化支援、財務コンサルティング、研修事業の5つの事業で、企業のデジタル変革と成長戦略を支援します。">
   <meta property="og:image" content="https://k-partners.online/images/hero-bg.webp">
   <meta property="og:site_name" content="合同会社Kパートナーズ">
   <meta property="og:locale" content="ja_JP">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="事業内容 | 合同会社Kパートナーズ">
-  <meta name="twitter:description" content="システム開発、デジタルマーケティング、AI・DX内製化支援、財務コンサルティングの4つの事業で、企業のデジタル変革と成長戦略を支援します。">
+  <meta name="twitter:description" content="システム開発、デジタルマーケティング、AI・DX内製化支援、財務コンサルティング、研修事業の5つの事業で、企業のデジタル変革と成長戦略を支援します。">
   <meta name="twitter:image" content="https://k-partners.online/images/hero-bg.webp">
   <!-- Favicon -->
   <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
@@ -28,17 +28,8 @@
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: {
-            sans: ['Noto Sans JP', 'sans-serif'],
-            inter: ['Inter', 'sans-serif'],
-          },
-          colors: {
-            primary: '#0f172a',
-            accent: '#3b82f6',
-            'accent-dark': '#1d4ed8',
-            surface: '#f8fafc',
-            border: '#e2e8f0',
-          }
+          fontFamily: { sans: ['Noto Sans JP', 'sans-serif'], inter: ['Inter', 'sans-serif'] },
+          colors: { primary: '#0f172a', accent: '#3b82f6', 'accent-dark': '#1d4ed8', surface: '#f8fafc', border: '#e2e8f0' }
         }
       }
     }
@@ -47,7 +38,6 @@
     html { scroll-behavior: smooth; }
     body { -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 
-    /* Animated Gradient Background */
     .gradient-hero {
       background: linear-gradient(-45deg, #0f172a, #1e293b, #3b82f6, #1e40af);
       background-size: 400% 400%;
@@ -59,65 +49,25 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* Floating Dots Pattern */
     .dots-pattern {
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background-image: radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px);
       background-size: 30px 30px;
-      animation: dotFloat 20s linear infinite;
-    }
-    @keyframes dotFloat {
-      0% { background-position: 0 0; }
-      100% { background-position: 30px 30px; }
     }
 
-
-    /* Process Steps */
     .process-line {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      height: 2px;
+      position: absolute; top: 50%; left: 0; right: 0; height: 2px;
       background: linear-gradient(90deg, transparent, #3b82f6, transparent);
     }
     .process-dot {
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: #3b82f6;
-      position: relative;
-      z-index: 10;
-    }
-    .process-dot::after {
-      content: '';
-      position: absolute;
-      inset: -4px;
-      border-radius: 50%;
-      border: 2px solid #3b82f6;
-      animation: ripple 2s ease-out infinite;
-    }
-    @keyframes ripple {
-      0% { transform: scale(1); opacity: 1; }
-      100% { transform: scale(2); opacity: 0; }
+      width: 16px; height: 16px; border-radius: 50%;
+      background: #3b82f6; position: relative; z-index: 10;
     }
 
-    /* Fade In */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    .fade-in.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .fade-in.active { opacity: 1; transform: translateY(0); }
 
-    /* Scroll margin for anchor links (header height + padding) */
-    .service-section {
-      scroll-margin-top: 100px;
-    }
+    .service-section { scroll-margin-top: 100px; }
   </style>
 </head>
 <body class="bg-white text-gray-800 font-sans">
@@ -143,13 +93,26 @@
           <a href="service.html" class="text-accent font-medium">事業内容</a>
           <a href="contact.html" class="text-gray-600 hover:text-accent transition-colors font-medium">お問い合わせ</a>
         </nav>
+        <button id="menuBtn" class="md:hidden text-primary p-2" aria-label="メニュー">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
       </div>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-100">
+      <nav class="max-w-6xl mx-auto px-6 py-6 flex flex-col gap-4">
+        <a href="index.html" class="text-gray-600 hover:text-primary py-2">ホーム</a>
+        <a href="about.html" class="text-gray-600 hover:text-primary py-2">会社概要</a>
+        <a href="service.html" class="text-accent font-medium py-2">事業内容</a>
+        <a href="contact.html" class="text-gray-600 hover:text-primary py-2">お問い合わせ</a>
+      </nav>
     </div>
   </header>
 
   <main>
 
-    <!-- Animated Gradient Hero -->
+    <!-- Hero -->
     <section class="relative min-h-[500px] gradient-hero pt-20 flex items-center">
       <div class="dots-pattern"></div>
       <div class="relative z-10 max-w-6xl mx-auto px-6 py-20 text-center">
@@ -157,13 +120,13 @@
         <h1 class="fade-in text-5xl md:text-6xl font-bold text-white mb-6">事業内容</h1>
         <p class="fade-in text-white/80 text-lg max-w-2xl mx-auto">
           テクノロジーと戦略で、ビジネスの可能性を広げる。<br>
-          4つの領域から最適なソリューションをご提供します。
+          5つの領域から最適なソリューションをご提供します。
         </p>
       </div>
     </section>
 
     <!-- Service Cards -->
-    <section class="py-24 bg-white">
+    <section class="py-28 bg-white">
       <div class="max-w-6xl mx-auto px-6">
         <div class="text-center mb-16 fade-in">
           <p class="text-accent text-sm font-medium tracking-widest mb-3 font-inter uppercase">Our Services</p>
@@ -172,18 +135,14 @@
 
         <div class="space-y-0">
 
-          <!-- Service 1: System Development -->
+          <!-- 01 System Development -->
           <div id="system" class="service-section fade-in border-t border-gray-200 py-12">
             <div class="grid md:grid-cols-12 gap-8 items-start">
-              <div class="md:col-span-1">
-                <span class="text-5xl font-black text-gray-100 font-inter">01</span>
-              </div>
+              <div class="md:col-span-1"><span class="text-5xl font-black text-gray-100 font-inter">01</span></div>
               <div class="md:col-span-4">
                 <div class="flex items-center gap-4 mb-3">
                   <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center">
-                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-                    </svg>
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
                   </div>
                   <div>
                     <h3 class="text-xl font-bold text-primary">システム開発</h3>
@@ -203,18 +162,14 @@
             </div>
           </div>
 
-          <!-- Service 2: Digital Marketing -->
+          <!-- 02 Digital Marketing -->
           <div id="marketing" class="service-section fade-in border-t border-gray-200 py-12">
             <div class="grid md:grid-cols-12 gap-8 items-start">
-              <div class="md:col-span-1">
-                <span class="text-5xl font-black text-gray-100 font-inter">02</span>
-              </div>
+              <div class="md:col-span-1"><span class="text-5xl font-black text-gray-100 font-inter">02</span></div>
               <div class="md:col-span-4">
                 <div class="flex items-center gap-4 mb-3">
                   <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center">
-                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                    </svg>
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
                   </div>
                   <div>
                     <h3 class="text-xl font-bold text-primary">デジタルマーケティング</h3>
@@ -234,18 +189,14 @@
             </div>
           </div>
 
-          <!-- Service 3: AI/DX -->
+          <!-- 03 AI/DX -->
           <div id="dx" class="service-section fade-in border-t border-gray-200 py-12">
             <div class="grid md:grid-cols-12 gap-8 items-start">
-              <div class="md:col-span-1">
-                <span class="text-5xl font-black text-gray-100 font-inter">03</span>
-              </div>
+              <div class="md:col-span-1"><span class="text-5xl font-black text-gray-100 font-inter">03</span></div>
               <div class="md:col-span-4">
                 <div class="flex items-center gap-4 mb-3">
-                  <div class="w-12 h-12 rounded-lg bg-slate-100 flex items-center justify-center">
-                    <svg class="w-6 h-6 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                    </svg>
+                  <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                   </div>
                   <div>
                     <h3 class="text-xl font-bold text-primary">AI・DX内製化支援</h3>
@@ -265,18 +216,14 @@
             </div>
           </div>
 
-          <!-- Service 4: Financial Consulting -->
-          <div id="finance" class="service-section fade-in border-t border-b border-gray-200 py-12">
+          <!-- 04 Financial Consulting -->
+          <div id="finance" class="service-section fade-in border-t border-gray-200 py-12">
             <div class="grid md:grid-cols-12 gap-8 items-start">
-              <div class="md:col-span-1">
-                <span class="text-5xl font-black text-gray-100 font-inter">04</span>
-              </div>
+              <div class="md:col-span-1"><span class="text-5xl font-black text-gray-100 font-inter">04</span></div>
               <div class="md:col-span-4">
                 <div class="flex items-center gap-4 mb-3">
-                  <div class="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center">
-                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
+                  <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                   </div>
                   <div>
                     <h3 class="text-xl font-bold text-primary">財務コンサルティング</h3>
@@ -296,119 +243,180 @@
             </div>
           </div>
 
+          <!-- 05 Training -->
+          <div id="training" class="service-section fade-in border-t border-b border-gray-200 py-12">
+            <div class="grid md:grid-cols-12 gap-8 items-start">
+              <div class="md:col-span-1"><span class="text-5xl font-black text-gray-100 font-inter">05</span></div>
+              <div class="md:col-span-4">
+                <div class="flex items-center gap-4 mb-3">
+                  <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0v6"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-primary">研修事業</h3>
+                    <p class="text-xs text-gray-400 font-inter">Corporate Training</p>
+                  </div>
+                </div>
+              </div>
+              <div class="md:col-span-7">
+                <p class="text-gray-600 mb-6">新入社員から中堅層まで、ビジネスの現場で求められるスキルを実践的なプログラムで習得。組織の人材力を底上げします。</p>
+                <div class="flex flex-wrap gap-2 mb-8">
+                  <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded">コミュニケーション</span>
+                  <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded">ビジネスマナー</span>
+                  <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded">クレーム対応</span>
+                  <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded">新入社員向け</span>
+                </div>
+
+                <!-- 研修メニュー料金表 -->
+                <div class="bg-surface border border-gray-200 rounded-xl overflow-hidden">
+                  <div class="bg-primary px-6 py-3">
+                    <h4 class="text-white text-sm font-bold">研修メニュー・料金表</h4>
+                  </div>
+                  <div class="divide-y divide-gray-200">
+                    <div class="grid grid-cols-12 gap-2 px-6 py-3 bg-gray-50 text-xs font-bold text-gray-500">
+                      <div class="col-span-4">研修名</div>
+                      <div class="col-span-2">時間数</div>
+                      <div class="col-span-2">金額（税込）</div>
+                      <div class="col-span-4">対象者</div>
+                    </div>
+                    <div class="grid grid-cols-12 gap-2 px-6 py-4 items-center hover:bg-blue-50/30 transition-colors">
+                      <div class="col-span-4">
+                        <p class="text-sm font-medium text-primary">コミュニケーション研修</p>
+                        <p class="text-xs text-gray-400 mt-1">相手と良好な関係を築くスキル</p>
+</div>
+                      <div class="col-span-2 text-sm text-gray-600">7時間 &times; 1日</div>
+                      <div class="col-span-2 text-sm font-bold text-accent">77,000円</div>
+                      <div class="col-span-4 text-xs text-gray-500">新入社員・若手層・中堅層</div>
+                    </div>
+                    <div class="grid grid-cols-12 gap-2 px-6 py-4 items-center hover:bg-blue-50/30 transition-colors">
+                      <div class="col-span-4">
+                        <p class="text-sm font-medium text-primary">ビジネスマナー研修</p>
+                        <p class="text-xs text-gray-400 mt-1">社会人としての初歩的なマナー</p>
+</div>
+                      <div class="col-span-2 text-sm text-gray-600">7時間 &times; 1日</div>
+                      <div class="col-span-2 text-sm font-bold text-accent">77,000円</div>
+                      <div class="col-span-4 text-xs text-gray-500">新入社員・若手層</div>
+                    </div>
+                    <div class="grid grid-cols-12 gap-2 px-6 py-4 items-center hover:bg-blue-50/30 transition-colors">
+                      <div class="col-span-4">
+                        <p class="text-sm font-medium text-primary">クレーム対応研修</p>
+                        <p class="text-xs text-gray-400 mt-1">緊張・不安の緩和と再発防止</p>
+</div>
+                      <div class="col-span-2 text-sm text-gray-600">7時間 &times; 1日</div>
+                      <div class="col-span-2 text-sm font-bold text-accent">77,000円</div>
+                      <div class="col-span-4 text-xs text-gray-500">新入社員・若手層・中堅層</div>
+                    </div>
+                    <div class="grid grid-cols-12 gap-2 px-6 py-4 items-center hover:bg-blue-50/30 transition-colors">
+                      <div class="col-span-4">
+                        <p class="text-sm font-medium text-primary">ビジネス対応力研修</p>
+                        <p class="text-xs text-gray-400 mt-1">対人スキルの総合習得</p>
+</div>
+                      <div class="col-span-2 text-sm text-gray-600">7時間 &times; 2日</div>
+                      <div class="col-span-2 text-sm font-bold text-accent">77,000円</div>
+                      <div class="col-span-4 text-xs text-gray-500">新入社員・若手層</div>
+                    </div>
+                    <div class="grid grid-cols-12 gap-2 px-6 py-4 items-center hover:bg-blue-50/30 transition-colors">
+                      <div class="col-span-4">
+                        <p class="text-sm font-medium text-primary">ビジネス基礎研修</p>
+                        <p class="text-xs text-gray-400 mt-1">社会人としての基礎スキル総合</p>
+</div>
+                      <div class="col-span-2 text-sm text-gray-600">7時間 &times; 3日</div>
+                      <div class="col-span-2 text-sm font-bold text-accent">77,000円</div>
+                      <div class="col-span-4 text-xs text-gray-500">新入社員・若手層</div>
+                    </div>
+                  </div>
+                  <div class="px-6 py-3 bg-gray-50 text-xs text-gray-400">
+                    ※ 研修内容・日程はご要望に応じてカスタマイズ可能です。お気軽にお問い合わせください。
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
     <!-- Process Section -->
-    <section class="py-24 bg-surface">
+    <section class="py-28 bg-surface">
       <div class="max-w-6xl mx-auto px-6">
         <div class="text-center mb-16 fade-in">
           <p class="text-accent text-sm font-medium tracking-widest mb-3 font-inter uppercase">Process</p>
           <h2 class="text-3xl md:text-4xl font-bold text-primary">ご依頼の流れ</h2>
         </div>
-
         <div class="relative">
-          <!-- Process Line (desktop) -->
           <div class="hidden md:block process-line"></div>
-
           <div class="grid md:grid-cols-4 gap-8">
-
             <div class="fade-in text-center relative">
-              <div class="md:absolute md:left-1/2 md:-translate-x-1/2 md:-top-2 flex justify-center mb-4">
-                <div class="process-dot"></div>
-              </div>
+              <div class="md:absolute md:left-1/2 md:-translate-x-1/2 md:-top-2 flex justify-center mb-4"><div class="process-dot"></div></div>
               <div class="md:pt-12">
                 <span class="inline-block text-4xl font-bold text-accent/20 font-inter mb-2">01</span>
                 <h3 class="font-bold text-primary mb-2">お問い合わせ</h3>
                 <p class="text-sm text-gray-500">フォームまたはお電話でご連絡ください</p>
               </div>
             </div>
-
             <div class="fade-in text-center relative">
-              <div class="md:absolute md:left-1/2 md:-translate-x-1/2 md:-top-2 flex justify-center mb-4">
-                <div class="process-dot"></div>
-              </div>
+              <div class="md:absolute md:left-1/2 md:-translate-x-1/2 md:-top-2 flex justify-center mb-4"><div class="process-dot"></div></div>
               <div class="md:pt-12">
                 <span class="inline-block text-4xl font-bold text-accent/20 font-inter mb-2">02</span>
                 <h3 class="font-bold text-primary mb-2">ヒアリング</h3>
                 <p class="text-sm text-gray-500">課題やご要望を詳しくお伺いします</p>
               </div>
             </div>
-
             <div class="fade-in text-center relative">
-              <div class="md:absolute md:left-1/2 md:-translate-x-1/2 md:-top-2 flex justify-center mb-4">
-                <div class="process-dot"></div>
-              </div>
+              <div class="md:absolute md:left-1/2 md:-translate-x-1/2 md:-top-2 flex justify-center mb-4"><div class="process-dot"></div></div>
               <div class="md:pt-12">
                 <span class="inline-block text-4xl font-bold text-accent/20 font-inter mb-2">03</span>
                 <h3 class="font-bold text-primary mb-2">ご提案</h3>
                 <p class="text-sm text-gray-500">最適なソリューションをご提案</p>
               </div>
             </div>
-
             <div class="fade-in text-center relative">
-              <div class="md:absolute md:left-1/2 md:-translate-x-1/2 md:-top-2 flex justify-center mb-4">
-                <div class="process-dot"></div>
-              </div>
+              <div class="md:absolute md:left-1/2 md:-translate-x-1/2 md:-top-2 flex justify-center mb-4"><div class="process-dot"></div></div>
               <div class="md:pt-12">
                 <span class="inline-block text-4xl font-bold text-accent/20 font-inter mb-2">04</span>
                 <h3 class="font-bold text-primary mb-2">プロジェクト開始</h3>
                 <p class="text-sm text-gray-500">契約後、プロジェクトを開始</p>
               </div>
             </div>
-
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Features Grid -->
-    <section class="py-24 bg-white">
+    <!-- Why Choose Us -->
+    <section class="py-28 bg-white">
       <div class="max-w-6xl mx-auto px-6">
         <div class="text-center mb-16 fade-in">
           <p class="text-accent text-sm font-medium tracking-widest mb-3 font-inter uppercase">Why Choose Us</p>
           <h2 class="text-3xl md:text-4xl font-bold text-primary">選ばれる理由</h2>
         </div>
-
         <div class="grid md:grid-cols-3 gap-8">
-
           <div class="fade-in bg-surface border border-gray-200 p-8 rounded-xl">
             <div class="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center mb-6">
-              <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-              </svg>
+              <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
             </div>
             <h3 class="text-lg font-bold text-primary mb-3">スピーディーな対応</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">
-              迅速な意思決定でプロジェクトを加速します。
-            </p>
+            <p class="text-gray-500 text-sm leading-relaxed">迅速な意思決定でプロジェクトを加速します。</p>
           </div>
-
           <div class="fade-in bg-surface border border-gray-200 p-8 rounded-xl">
             <div class="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center mb-6">
-              <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-              </svg>
+              <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
             </div>
             <h3 class="text-lg font-bold text-primary mb-3">高品質な成果物</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">
-              豊富な経験と最新技術で、期待を超える品質をお約束します。
-            </p>
+            <p class="text-gray-500 text-sm leading-relaxed">豊富な経験と最新技術で、期待を超える品質をお約束します。</p>
           </div>
-
           <div class="fade-in bg-surface border border-gray-200 p-8 rounded-xl">
-            <div class="w-14 h-14 rounded-xl bg-slate-100 flex items-center justify-center mb-6">
-              <svg class="w-7 h-7 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-              </svg>
+            <div class="w-14 h-14 rounded-xl bg-blue-100 flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
             </div>
             <h3 class="text-lg font-bold text-primary mb-3">ワンストップ対応</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">
-              戦略策定から実行まで、一貫したサポートで効率的なプロジェクト運営を実現。
-            </p>
+            <p class="text-gray-500 text-sm leading-relaxed">戦略策定から実行まで、一貫したサポートで効率的なプロジェクト運営を実現。</p>
           </div>
-
         </div>
       </div>
     </section>
@@ -433,9 +441,7 @@
             </div>
           </div>
           <p class="text-sm text-gray-400 leading-relaxed">
-            〒145-0066<br>
-            東京都大田区南雪谷三丁目3番1号<br>
-            サイプレスヤマト105<br><br>
+            〒145-0066<br>東京都大田区南雪谷三丁目3番1号<br>サイプレスヤマト105<br><br>
             TEL: 03-6821-6584<br>
             Mail: <a href="mailto:info@k-partners.online" class="hover:text-white">info@k-partners.online</a>
           </p>
@@ -457,6 +463,7 @@
               <li><a href="#marketing" class="hover:text-white transition-colors">デジタルマーケティング</a></li>
               <li><a href="#dx" class="hover:text-white transition-colors">AI・DX内製化支援</a></li>
               <li><a href="#finance" class="hover:text-white transition-colors">財務コンサルティング</a></li>
+              <li><a href="#training" class="hover:text-white transition-colors">研修事業</a></li>
             </ul>
           </div>
         </div>
@@ -468,16 +475,14 @@
   </footer>
 
   <script>
-    // Intersection Observer for animations
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
     }, { threshold: 0.1 });
-
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    document.getElementById('menuBtn').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
   </script>
 
 </body>
