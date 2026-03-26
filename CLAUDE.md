@@ -1,105 +1,53 @@
-# Kパートナーズ ウェブサイト 開発メモ
+# Kパートナーズ ウェブサイト 開発ドキュメント
 
-## 今日決めた重要な設計方針（2026-01-27）
+## アカウント・サービス情報
 
-### ポートフォリオサイト統合
-- **方針**: 公式HPと同一リポジトリ・同一Netlifyプロジェクトに統合
-- **理由**: サブドメインを別プロジェクトに設定するとNetlifyでエラーが発生するため
-- **構成**: portfolio/ディレクトリにポートフォリオを配置、netlify.tomlでルーティング
+| サービス | アカウント | 用途 |
+|---------|-----------|------|
+| GitHub | koda1120 (koda1120/kpartners-website) | ソースコード管理 |
+| Netlify | IKEMEN LTD (ikemenltd@gmail.com) / チーム: IKEMEN | ホスティング・デプロイ |
+| お名前.com | ドメイン・DNS管理 | k-partners.online |
+| お名前メール | info@k-partners.online | 問い合わせ受信 |
+| Web3Forms | アクセスキー: 01992473-3273-4649-88c2-b1aef846be80 | フォーム送信 |
 
-### サイト構成
+### Netlify
+- サイト名: kpartners-official
+- Site ID: 7fa7787e-1a3e-4b21-a433-10a41bbf1d28
+- Admin: https://app.netlify.com/projects/kpartners-official
+- デプロイ: GitHub連携による自動デプロイ（masterブランチへのpush）
+
+---
+
+## サイト構成
+
 | URL | 内容 | ディレクトリ |
 |-----|------|-------------|
 | k-partners.online | 公式HP | / (ルート) |
 | portfolio.k-partners.online | ポートフォリオ | /portfolio/ |
 
-### 表記統一
-- **事業名**: 「AI・DX内製化支援」に統一（全ページ）
-- **設立日**: 「2025年11月27日」に統一
+サブドメインのルーティングは `netlify.toml` で設定。
+
+### ファイル構成
+```
+kpartners-website/
+├── index.html          ← トップページ
+├── about.html          ← 会社概要
+├── service.html        ← 事業内容
+├── contact.html        ← お問い合わせ（Web3Forms）
+├── thanks.html         ← フォーム送信完了
+├── images/             ← 画像
+├── netlify.toml        ← サブドメインルーティング設定
+├── .netlify/           ← Netlifyローカル設定（Git管理外推奨）
+└── portfolio/          ← ポートフォリオサイト
+    ├── index.html
+    ├── thanks.html
+    └── 画像ファイル
+```
 
 ---
 
-## 過去の設計方針（2026-01-26）
+## DNS設定（お名前メール レンタルサーバー側で管理）
 
-### 営業時間・回答期間
-- **営業時間**: 平日10:00〜18:00（土日祝日・年末年始を除く）
-- **回答期間**: 通常3営業日
-- **対象箇所**: contact.html, thanks.html, portfolio/thanks.html
-
----
-
-## 過去の設計方針（2026-01-20）
-
-### DNS・メール設定
-- **ネームサーバー**: お名前.comのレンタルサーバー用（ns-rs1/rs2.gmoserver.jp）を使用
-- **サイトホスティング**: Netlify（カスタムドメイン k-partners.online）
-- **メール**: お名前メール（info@k-partners.online）
-- **DNS設定場所**: お名前メールのレンタルサーバー側DNS設定画面で管理
-
-### フォームサービス
-- **採用**: Web3Forms（月250件まで無料）
-- **理由**: FormSubmitからのメールがお名前メールに届かない問題があったため移行
-- **アクセスキー**: 01992473-3273-4649-88c2-b1aef846be80
-
----
-
-## 解決した問題とその方法
-
-### 問題6: Netlifyサブドメイン設定エラー（2026-01-27）
-- **内容**: portfolio.k-partners.onlineを別Netlifyプロジェクト(kodaprofile)に設定しようとするとエラー
-- **原因**: 親ドメインk-partners.onlineがkpartners-officialに登録済みのため
-- **解決**: 同一リポジトリ・同一Netlifyプロジェクトに統合、netlify.tomlでルーティング
-
-### 問題5: フッター不統一・リンク未実装（2026-01-27）
-- **内容**: ページ間でフッター形式が異なる、事業内容リンクが機能しない
-- **解決**: 全5ページでフッター統一、service.htmlにセクションid追加、scroll-margin-top設定
-
-### 問題4: 表記不統一・未使用コード（2026-01-27）
-- **内容**: 「AI・DX支援」と「AI・DX内製化支援」の混在、設立日の曖昧表記、未使用CSS/JS
-- **解決**: 全ページで「AI・DX内製化支援」「2025年11月27日」に統一、未使用コード削除
-
-### 問題3: 受付時間の統一（2026-01-21）
-- **内容**: 受付時間が「平日 9:00 - 18:00」だった
-- **解決**: 「平日 10:00～19:00」に変更（contact.html, thanks.htmlの2箇所）
-
-### 問題1: サイト表示とメール送受信が同時に動かない（2026-01-20）
-- **原因**: お名前.comのネームサーバー設定とDNSレコード設定の関係
-  - 01~04.dnsv.jp → サイト✓ メール✗
-  - ns-rs1/rs2.gmoserver.jp → サイト✗ メール✓
-- **解決**: レンタルサーバー側のDNS設定画面でNetlify用レコードを追加
-  - Aレコード: k-partners.online → 75.2.60.5
-  - CNAME: www.k-partners.online → kpartners-official.netlify.app
-
-### 問題2: FormSubmitからのメールがお名前メールに届かない
-- **原因**: FormSubmitのサーバーからのメールがお名前メール側でブロック/スパム判定
-- **解決**: Web3Formsに移行（contact.html更新済み）
-
----
-
-## 次回やるべきこと
-
-1. **フッター年表示の更新**
-   - 現在「© 2024」→「© 2026」に変更
-   - 対象: portfolio/index.html, portfolio/thanks.html
-
-2. **不要リソースの削除（任意）**
-   - images/ヒーローセクション.png（未使用画像）
-   - Netlify: kodaprofileプロジェクト（不要になった）
-   - GitHub: koda-portfolioリポジトリ（不要になった）
-
-3. **ポートフォリオのフォーム動作確認**
-   - portfolio.k-partners.online からテスト送信
-   - info@k-partners.online に届くか確認
-
-4. **レスポンシブ表示確認**
-   - スマホ・タブレットでの表示チェック
-   - 公式HP全ページ + ポートフォリオ
-
----
-
-## 技術情報
-
-### 現在のDNSレコード（お名前メール側で設定）
 | タイプ | ホスト名 | 値 |
 |--------|----------|-----|
 | A | k-partners.online | 75.2.60.5 |
@@ -109,19 +57,45 @@
 | MX | k-partners.online | mail1016.onamae.ne.jp |
 | TXT | k-partners.online | v=spf1 include:_spf.onamae.ne.jp ~all |
 
-### ファイル構成
-```
-kpartners-website/
-├── index.html, about.html, service.html, contact.html, thanks.html  ← 公式HP
-├── images/
-├── netlify.toml          ← サブドメインルーティング設定
-└── portfolio/            ← ポートフォリオサイト
-    ├── index.html, thanks.html
-    └── 画像ファイル
-```
+**ネームサーバー**: お名前メールのレンタルサーバー用（ns-rs1/rs2.gmoserver.jp）を使用。
+dnsv.jpに変更するとメールが届かなくなるため注意。
 
-### デプロイ方法
+---
+
+## 設計方針
+
+- **事業名表記**: 「AI・DX内製化支援」に統一
+- **設立日表記**: 「2025年11月27日」に統一
+- **営業時間**: 平日10:00〜18:00（土日祝日・年末年始を除く）
+- **回答期間**: 通常3営業日
+- **デザイン**: モダン・クリーン、アクセントカラー #3b82f6、primary #0f172a
+
+---
+
+## 過去に解決した問題
+
+### サイト表示とメール送受信の両立（2026-01-20）
+- **原因**: お名前.comのネームサーバー設定。dnsv.jp→サイトOK/メールNG、gmoserver.jp→逆
+- **解決**: レンタルサーバー側DNS設定画面でNetlify用Aレコード・CNAMEを追加
+
+### FormSubmitからのメール不達（2026-01-20）
+- **原因**: お名前メール側でブロック/スパム判定
+- **解決**: Web3Formsに移行
+
+### Netlifyサブドメイン設定エラー（2026-01-27）
+- **原因**: 親ドメインが別プロジェクトに登録済みのためサブドメインを別プロジェクトに設定不可
+- **解決**: 同一リポジトリ・同一Netlifyプロジェクトに統合、netlify.tomlでルーティング
+
+---
+
+## デプロイ方法
+
 ```bash
 git add . && git commit -m "メッセージ" && git push
 ```
-→ Netlifyが自動でビルド・デプロイ（公式HP・ポートフォリオ両方）
+Netlifyが自動でビルド・デプロイ（公式HP・ポートフォリオ両方）。
+
+手動デプロイ:
+```bash
+netlify deploy --prod
+```
