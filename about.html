@@ -77,7 +77,7 @@
     .timeline-item:last-child::after { display: none; }
 
     .info-row {
-      display: grid; grid-template-columns: 160px 1fr;
+      display: grid; grid-template-columns: 100px 1fr;
       border-bottom: 1px solid #e5e5e5; padding: 24px 0;
     }
     .info-row:first-child { border-top: 1px solid #e5e5e5; }
@@ -161,7 +161,7 @@
         <div class="grid md:grid-cols-2 gap-20">
           <div>
             <p class="slide-left text-accent text-sm font-bold tracking-[0.3em] mb-6 font-inter">BUSINESS</p>
-            <h2 class="slide-left text-4xl font-bold text-primary mb-12">事業領域</h2>
+            <h2 class="slide-left text-3xl md:text-4xl font-bold text-primary mb-12">事業領域</h2>
             <div class="space-y-8">
               <div class="timeline-item slide-left">
                 <h3 class="font-bold text-xl text-primary mb-2">システム開発事業</h3>
@@ -187,7 +187,7 @@
           </div>
           <div>
             <p class="slide-right text-accent text-sm font-bold tracking-[0.3em] mb-6 font-inter">STRENGTH</p>
-            <h2 class="slide-right text-4xl font-bold text-primary mb-12">強み</h2>
+            <h2 class="slide-right text-3xl md:text-4xl font-bold text-primary mb-12">強み</h2>
             <div class="space-y-8">
               <div class="slide-right bg-surface rounded-2xl p-8">
                 <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-4">
@@ -221,7 +221,7 @@
       <div class="max-w-4xl mx-auto px-6">
         <div class="text-center mb-16">
           <p class="slide-up text-accent text-sm font-bold tracking-[0.3em] mb-6 font-inter">COMPANY INFO</p>
-          <h2 class="slide-up text-4xl font-bold text-primary">企業情報</h2>
+          <h2 class="slide-up text-3xl md:text-4xl font-bold text-primary">企業情報</h2>
         </div>
 
         <div class="slide-up">
@@ -277,7 +277,7 @@
         <div class="grid md:grid-cols-3 gap-12">
           <div class="slide-left">
             <p class="text-accent text-sm font-bold tracking-[0.3em] mb-6 font-inter">ACCESS</p>
-            <h2 class="text-4xl font-bold text-primary mb-8">アクセス</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-primary mb-8">アクセス</h2>
             <div class="space-y-6">
               <div>
                 <p class="text-sm text-gray-500 mb-2">住所</p>
@@ -337,7 +337,7 @@
             Mail: <a href="mailto:info@k-partners.online" class="hover:text-white">info@k-partners.online</a>
           </p>
         </div>
-        <div class="grid grid-cols-2 gap-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12">
           <div>
             <p class="font-medium text-sm mb-4">ページ</p>
             <ul class="space-y-3 text-sm text-gray-400">
@@ -347,7 +347,7 @@
               <li><a href="contact.html" class="hover:text-white transition-colors">お問い合わせ</a></li>
             </ul>
           </div>
-          <div>
+          <div class="hidden sm:block">
             <p class="font-medium text-sm mb-4">事業内容</p>
             <ul class="space-y-3 text-sm text-gray-400">
               <li><a href="service.html#system" class="hover:text-white transition-colors">システム開発</a></li>

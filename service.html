@@ -273,10 +273,12 @@
 
                 <!-- 研修メニュー料金表 -->
                 <div class="bg-surface border border-gray-200 rounded-xl overflow-hidden">
-                  <div class="bg-primary px-6 py-3">
+                  <div class="bg-primary px-4 md:px-6 py-3">
                     <h4 class="text-white text-sm font-bold">研修メニュー・料金表</h4>
                   </div>
-                  <div class="divide-y divide-gray-200">
+
+                  <!-- Desktop: グリッド表示 -->
+                  <div class="hidden md:block divide-y divide-gray-200">
                     <div class="grid grid-cols-12 gap-2 px-6 py-3 bg-gray-50 text-xs font-bold text-gray-500">
                       <div class="col-span-4">研修名</div>
                       <div class="col-span-2">時間数</div>
@@ -287,7 +289,7 @@
                       <div class="col-span-4">
                         <p class="text-sm font-medium text-primary">コミュニケーション研修</p>
                         <p class="text-xs text-gray-400 mt-1">相手と良好な関係を築くスキル</p>
-</div>
+                      </div>
                       <div class="col-span-2 text-sm text-gray-600">7時間 &times; 1日</div>
                       <div class="col-span-2 text-sm font-bold text-accent">77,000円</div>
                       <div class="col-span-4 text-xs text-gray-500">新入社員・若手層・中堅層</div>
@@ -296,7 +298,7 @@
                       <div class="col-span-4">
                         <p class="text-sm font-medium text-primary">ビジネスマナー研修</p>
                         <p class="text-xs text-gray-400 mt-1">社会人としての初歩的なマナー</p>
-</div>
+                      </div>
                       <div class="col-span-2 text-sm text-gray-600">7時間 &times; 1日</div>
                       <div class="col-span-2 text-sm font-bold text-accent">77,000円</div>
                       <div class="col-span-4 text-xs text-gray-500">新入社員・若手層</div>
@@ -305,7 +307,7 @@
                       <div class="col-span-4">
                         <p class="text-sm font-medium text-primary">クレーム対応研修</p>
                         <p class="text-xs text-gray-400 mt-1">緊張・不安の緩和と再発防止</p>
-</div>
+                      </div>
                       <div class="col-span-2 text-sm text-gray-600">7時間 &times; 1日</div>
                       <div class="col-span-2 text-sm font-bold text-accent">77,000円</div>
                       <div class="col-span-4 text-xs text-gray-500">新入社員・若手層・中堅層</div>
@@ -314,7 +316,7 @@
                       <div class="col-span-4">
                         <p class="text-sm font-medium text-primary">ビジネス対応力研修</p>
                         <p class="text-xs text-gray-400 mt-1">対人スキルの総合習得</p>
-</div>
+                      </div>
                       <div class="col-span-2 text-sm text-gray-600">7時間 &times; 2日</div>
                       <div class="col-span-2 text-sm font-bold text-accent">77,000円</div>
                       <div class="col-span-4 text-xs text-gray-500">新入社員・若手層</div>
@@ -323,13 +325,73 @@
                       <div class="col-span-4">
                         <p class="text-sm font-medium text-primary">ビジネス基礎研修</p>
                         <p class="text-xs text-gray-400 mt-1">社会人としての基礎スキル総合</p>
-</div>
+                      </div>
                       <div class="col-span-2 text-sm text-gray-600">7時間 &times; 3日</div>
                       <div class="col-span-2 text-sm font-bold text-accent">77,000円</div>
                       <div class="col-span-4 text-xs text-gray-500">新入社員・若手層</div>
                     </div>
                   </div>
-                  <div class="px-6 py-3 bg-gray-50 text-xs text-gray-400">
+
+                  <!-- Mobile: カード型縦積み -->
+                  <div class="md:hidden divide-y divide-gray-200">
+                    <div class="px-4 py-4">
+                      <div class="flex justify-between items-start mb-1">
+                        <p class="text-sm font-medium text-primary">コミュニケーション研修</p>
+                        <p class="text-sm font-bold text-accent whitespace-nowrap ml-3">77,000円</p>
+                      </div>
+                      <p class="text-xs text-gray-400 mb-2">相手と良好な関係を築くスキル</p>
+                      <div class="flex gap-3 text-xs text-gray-500">
+                        <span>7時間 &times; 1日</span>
+                        <span>新入社員・若手層・中堅層</span>
+                      </div>
+                    </div>
+                    <div class="px-4 py-4">
+                      <div class="flex justify-between items-start mb-1">
+                        <p class="text-sm font-medium text-primary">ビジネスマナー研修</p>
+                        <p class="text-sm font-bold text-accent whitespace-nowrap ml-3">77,000円</p>
+                      </div>
+                      <p class="text-xs text-gray-400 mb-2">社会人としての初歩的なマナー</p>
+                      <div class="flex gap-3 text-xs text-gray-500">
+                        <span>7時間 &times; 1日</span>
+                        <span>新入社員・若手層</span>
+                      </div>
+                    </div>
+                    <div class="px-4 py-4">
+                      <div class="flex justify-between items-start mb-1">
+                        <p class="text-sm font-medium text-primary">クレーム対応研修</p>
+                        <p class="text-sm font-bold text-accent whitespace-nowrap ml-3">77,000円</p>
+                      </div>
+                      <p class="text-xs text-gray-400 mb-2">緊張・不安の緩和と再発防止</p>
+                      <div class="flex gap-3 text-xs text-gray-500">
+                        <span>7時間 &times; 1日</span>
+                        <span>新入社員・若手層・中堅層</span>
+                      </div>
+                    </div>
+                    <div class="px-4 py-4">
+                      <div class="flex justify-between items-start mb-1">
+                        <p class="text-sm font-medium text-primary">ビジネス対応力研修</p>
+                        <p class="text-sm font-bold text-accent whitespace-nowrap ml-3">77,000円</p>
+                      </div>
+                      <p class="text-xs text-gray-400 mb-2">対人スキルの総合習得</p>
+                      <div class="flex gap-3 text-xs text-gray-500">
+                        <span>7時間 &times; 2日</span>
+                        <span>新入社員・若手層</span>
+                      </div>
+                    </div>
+                    <div class="px-4 py-4">
+                      <div class="flex justify-between items-start mb-1">
+                        <p class="text-sm font-medium text-primary">ビジネス基礎研修</p>
+                        <p class="text-sm font-bold text-accent whitespace-nowrap ml-3">77,000円</p>
+                      </div>
+                      <p class="text-xs text-gray-400 mb-2">社会人としての基礎スキル総合</p>
+                      <div class="flex gap-3 text-xs text-gray-500">
+                        <span>7時間 &times; 3日</span>
+                        <span>新入社員・若手層</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="px-4 md:px-6 py-3 bg-gray-50 text-xs text-gray-400">
                     ※ 研修内容・日程はご要望に応じてカスタマイズ可能です。お気軽にお問い合わせください。
                   </div>
                 </div>
@@ -446,7 +508,7 @@
             Mail: <a href="mailto:info@k-partners.online" class="hover:text-white">info@k-partners.online</a>
           </p>
         </div>
-        <div class="grid grid-cols-2 gap-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12">
           <div>
             <p class="font-medium text-sm mb-4">ページ</p>
             <ul class="space-y-3 text-sm text-gray-400">
@@ -456,7 +518,7 @@
               <li><a href="contact.html" class="hover:text-white transition-colors">お問い合わせ</a></li>
             </ul>
           </div>
-          <div>
+          <div class="hidden sm:block">
             <p class="font-medium text-sm mb-4">事業内容</p>
             <ul class="space-y-3 text-sm text-gray-400">
               <li><a href="#system" class="hover:text-white transition-colors">システム開発</a></li>
